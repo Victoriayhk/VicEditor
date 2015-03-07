@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<title>Example</title>
+		<meta charset = "utf-8">
+		<style type = "text/css">
+#editor {
+	margin: auto;
+	width: 500pt;
+	border: solid 1px #CCC;
+	border-radius: 2px;
+	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
+	-moz-box-shadow: 4pt 4pt 4pt #DDD;
+	box-shadow: 4pt 4pt 4pt #DDD;
+}
+
+#editor #menu {
+	padding: 0.3em;
+	background-color: #F8F8F8;
+	line-height: 2em;
+	-webkit-box-shadow: 0 4pt 4pt #DDD;
+	-moz-box-shadow: 0 4pt 4pt #DDD;
+	box-shadow: 0 4pt 4pt #DDD;
+}
+
+#editor > textarea {
+	width: 100%;
+	height: 240pt;
+	background-color: #FFF;
+	border: 0;
+	margin-top: 10pt;
+	padding: 0 0.3em;
+}
+
+#editor #console {
+	font-size: 8pt;
+	background-color: #F8F8F8;
+	line-height: 1.2em;
+	margin: 0;
+	padding: 0 0.3em;
+	border-top: solid 1px #CCC;
+}
+
+#editor .button {
+	border: solid 1px #CCC;
+	border-radius: 2px;
+	background-color: #EEE;
+	padding-left:  0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0em;
+	margin-left: 0.1em;
+}
+
+#editor .button img {
+	height: 1.0em;
+	padding: 0 0 0 0;
+}
+
+#editor select {
+	height: 2.0em;
+	vertical-align: 0.3em;
+	border: solid 1px #CCC;
+	border-radius: 2px;
+	background-color: #EEE;
+	padding-left:  0.5em;
+	padding-right: 0.5em;
+	margin-left: 0.1em;
+	margin-right: 0.1em;
+}
+		</style>
+	</head>
+	<body>
+		<div id = "editor">
+			<div id = "menu">
+				<!-- 文本
+					文本级别			  : H1, H2, H3, H4, H5, H6, p, quote, code, pre, list, table等
+				    文本修饰(不影响布局)  : 斜体, 加粗, 下划线, 删除线, 颜色?, 上标, 下标
+				    其它文本属性(影响布局): 字体(衬线, 无衬线, 等宽), 字间隔, 字体大小
+				 -->
+				
+				<!-- 段落修饰:
+					行距, 缩进, 对齐方式
+				-->
+
+				<!-- 其它功能:
+					图片插入
+					公式编辑
+					html代码模式
+				-->
+
+				<!-- 第一阶段:
+					不考虑style和css样式的定制, 初步实现如下功能:
+					+ 加粗, 斜体, 下划线, 删除线, 上下标
+				 -->
+
+
+				 <!-- 文本修饰 -->
+				<span class = "button" title = "bold"><img src = "images/bold.png" alt = "bold" /></span>
+				<span class = "button" title = "italic"><img src = "images/italic.png" alt = "italic" /></span>
+				<span class = "button" title = "underline"><img src = "images/underline.png" alt = "underline" /></span>
+				<span class = "button" title = "del"><img src = "images/del.png" alt = "del" /></span>
+				<span class = "button" title = "link"><img src = "images/link.png" alt = "link" /></span>
+
+				<!-- 段落修饰 -->
+				<span>&nbsp;&nbsp;</span>
+				<span class = "button" title = "justifyleft"><img src="images/justifyleft.png" alt = "justifyleft" /></span>
+				<span class = "button" title = "justifycenter"><img src="images/justifycenter.png" alt = "justifycenter" /></span>
+				<span class = "button" title = "justifyright"><img src="images/justifyright.png" alt = "justifyright" /></span>
+				<span class = "button" title = "indent"><img src="images/indent.png" alt = "indent" /></span>
+				<span class = "button" title = "outdent"><img src="images/outdent.png" alt = "outdent" /></span>
+
+				<span>&nbsp;&nbsp;</span>
+				<span class = "button" title = "insertunorderedlist"><img src = "images/insertunorderedlist.png" alt = "insertunorderedlist" /></span>
+				<span class = "button" title = "insertorderedlist"><img src="images/insertorderedlist.png" alt = "insertorderedlist" /></span>
+				<span class = "button" title = "table"><img src = "images/table.png" alt = "table" /></span>
+				<span class = "button" title = "code"><img src="images/code.png" alt = "code" /></span>
+				<span class = "button" title = "picture"><img src = "images/picture.png" alt = "picture" /></span>
+				
+				<!-- 文本修饰: 会影响布局 -->
+				<div></div>
+				<span class = "button" title = "font"><img src="images/font.png" alt = "font" /></span>
+				<span class = "button" title = "fontsize"><img src="images/fontsize.png" alt = "fontsize" /></span>
+				<span class = "button" title = "height"><img src="images/height.png" alt = "height" /></span>
+				<span class = "button" title = "width"><img src = "images/width.png" alt = "width" /></span>
+
+				<!-- 其它一类 -->
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<select title = "textrank">
+					<option value = "p">P</option>
+					<option value = "h1">H1</option>
+					<option value = "h2">H2</option>
+					<option value = "h3">H3</option>
+					<option value = "h4">H4</option>
+					<option value = "h5">H5</option>
+					<option value = "h6">H6</option>
+					<option value = "quote">Quote</option>
+					<option value = "pre">Pre</option>
+				</select>
+				<select title = "layoutstyle">
+					<option value = "browserdefualt">Defualt</option>
+					<option value = "monokai">Monokai</option>
+					<option value = "github">Github</option>
+					<option value = "paper">Paper</option>	
+				</select>
+				<span class = "button" title = "html"><img src="images/html.png" alt = "html" /></span>
+
+			</div>
+			<!-- <textarea id = "textarea">你好, 我是一个富文本编辑器的输入文本框</textarea> -->
+			<p id = "console">Hello World !!!</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+window.onload = function() {
+	var editor 	 = document.getElementById("editor");
+	var buttons  = editor.getElementsByTagName("span");
+	var selects  = editor.getElementsByTagName("select");
+
+	var console = document.getElementById("console");
+	// console.style.display = "none";
+	var iframe = document.createElement("iframe");
+	iframe.style.width = "500pt";
+	iframe.height = "240pt";
+	iframe.frameBorder = 0;
+	console.parentNode.insertBefore(iframe, console);
+	var iframeDocument = iframe.contentDocument || iframe.contentWindow.docment;
+	iframeDocument.designMode = "on";
+	iframeDocument.open();
+	iframeDocument.write('<html><head></head><body></body></html>');
+	iframeDocument.close();
+
+
+	for(var i = 0,l = buttons.length; i < l; i++) {
+	   	buttons[i].onclick = new function() {
+	        var command = buttons[i].getAttribute("title");
+	        return function() {
+	        	iframeDocument.execCommand(command);
+	        }
+	    }
+	}
+
+	for (var i = 0, l = selects.length; i < l; i++) {
+		selects[i].onchange = new function() {
+			var select = selects[i];
+			return function() {
+				var command = select.getAttribute("title");
+				value = select.options[select.selectedIndex].value;
+				iframeDocument.execCommand(command, false, value);
+			}
+		}
+	}
+}
+	</script>
+</html>
