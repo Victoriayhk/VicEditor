@@ -5,7 +5,7 @@
 		<style type = "text/css">
 #editor {
 	margin: auto;
-	width: 500pt;
+	width: 600pt;
 	border: solid 1px #CCC;
 	border-radius: 2px;
 	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
@@ -14,9 +14,9 @@
 }
 
 #editor #menu {
-	padding: 0.3em;
+	padding: 0.5em;
 	background-color: #F8F8F8;
-	line-height: 2em;
+	line-height: 2.2em;
 	-webkit-box-shadow: 0 4pt 4pt #DDD;
 	-moz-box-shadow: 0 4pt 4pt #DDD;
 	box-shadow: 0 4pt 4pt #DDD;
@@ -40,32 +40,40 @@
 	border-top: solid 1px #CCC;
 }
 
-#editor .button {
-	border: solid 1px #CCC;
-	border-radius: 2px;
+#editor .buttonbox {
+	display: inline;
+	margin-right: 0.5em;
+}
+
+.buttonbox > span {
+	height: 100%;
+	border-left: solid 1px #CCC;
+	border-top: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
 	background-color: #EEE;
 	padding-left:  0.5em;
 	padding-right: 0.5em;
-	padding-top: 0.2em;
-	padding-bottom: 0em;
-	margin-left: 0.1em;
+	padding-top: 0.4em;
+	margin-right: -0.3em;
+}
+
+.buttonbox > span:hover {
+	cursor: hand;
+	background-color: #CCC;
+}
+
+.buttonbox > span:first-child {
+	/*border-radius: 4px 0 0 4px;*/
+}
+
+.buttonbox > span:last-child {
+	border-right: solid 1px #CCC;
+	/*border-radius: 0 4px 4px 0;*/
 }
 
 #editor .button img {
-	height: 1.0em;
+	height: 1.2em;
 	padding: 0 0 0 0;
-}
-
-#editor select {
-	height: 2.0em;
-	vertical-align: 0.3em;
-	border: solid 1px #CCC;
-	border-radius: 2px;
-	background-color: #EEE;
-	padding-left:  0.5em;
-	padding-right: 0.5em;
-	margin-left: 0.1em;
-	margin-right: 0.1em;
 }
 		</style>
 	</head>
@@ -95,57 +103,48 @@
 
 
 				 <!-- 文本修饰 -->
-				<span class = "button" title = "bold"><img src = "images/bold.png" alt = "bold" /></span>
-				<span class = "button" title = "italic"><img src = "images/italic.png" alt = "italic" /></span>
-				<span class = "button" title = "underline"><img src = "images/underline.png" alt = "underline" /></span>
-				<span class = "button" title = "del"><img src = "images/del.png" alt = "del" /></span>
-				<span class = "button" title = "link"><img src = "images/link.png" alt = "link" /></span>
+				<div class = "buttonbox" id = "editordecorate">
+					<span title = "bold"><img src = "images/bold.gif" alt = "bold" /></span>
+					<span title = "italic"><img src = "images/italic.png" alt = "italic" /></span>
+					<span title = "del"><img src = "images/del.gif" alt = "del" /></span>
+					<span title = "underline"><img src = "images/underline.png" alt = "underline" /></span>
+				</div>
 
-				<!-- 段落修饰 -->
-				<span>&nbsp;&nbsp;</span>
-				<span class = "button" title = "justifyleft"><img src="images/justifyleft.png" alt = "justifyleft" /></span>
-				<span class = "button" title = "justifycenter"><img src="images/justifycenter.png" alt = "justifycenter" /></span>
-				<span class = "button" title = "justifyright"><img src="images/justifyright.png" alt = "justifyright" /></span>
-				<span class = "button" title = "indent"><img src="images/indent.png" alt = "indent" /></span>
-				<span class = "button" title = "outdent"><img src="images/outdent.png" alt = "outdent" /></span>
+				<!-- 列表与缩进 -->
+				<div class = "buttonbox" id = "editorindent">
+					<span title = "insertunorderedlist"><img src = "images/insertunorderedlist.png" alt = "insertunorderedlist" /></span>
+					<span title = "insertorderedlist"><img src="images/insertorderedlist.png" alt = "insertorderedlist" /></span>
+					<span title = "indent"><img src="images/indent.png" alt = "indent" /></span>
+					<span title = "outdent"><img src="images/outdent.png" alt = "outdent" /></span>
+				</div>
 
-				<span>&nbsp;&nbsp;</span>
-				<span class = "button" title = "insertunorderedlist"><img src = "images/insertunorderedlist.png" alt = "insertunorderedlist" /></span>
-				<span class = "button" title = "insertorderedlist"><img src="images/insertorderedlist.png" alt = "insertorderedlist" /></span>
-				<span class = "button" title = "table"><img src = "images/table.png" alt = "table" /></span>
-				<span class = "button" title = "code"><img src="images/code.png" alt = "code" /></span>
-				<span class = "button" title = "picture"><img src = "images/picture.png" alt = "picture" /></span>
-				
-				<!-- 文本修饰: 会影响布局 -->
-				<div></div>
-				<span class = "button" title = "font"><img src="images/font.png" alt = "font" /></span>
-				<span class = "button" title = "fontsize"><img src="images/fontsize.png" alt = "fontsize" /></span>
-				<span class = "button" title = "height"><img src="images/height.png" alt = "height" /></span>
-				<span class = "button" title = "width"><img src = "images/width.png" alt = "width" /></span>
+				<!-- 超链接 -->
+				<div class = "buttonbox" id = "editorlink">
+					<span title = "link"><img src = "images/link.gif" alt = "link" /></span>
+					<span title = "linkremove"><img src = "images/linkremove.png" alt = "linkremove" /></span>
+				</div>
 
-				<!-- 其它一类 -->
-				<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<select title = "textrank">
-					<option value = "p">P</option>
-					<option value = "h1">H1</option>
-					<option value = "h2">H2</option>
-					<option value = "h3">H3</option>
-					<option value = "h4">H4</option>
-					<option value = "h5">H5</option>
-					<option value = "h6">H6</option>
-					<option value = "quote">Quote</option>
-					<option value = "pre">Pre</option>
-				</select>
-				<select title = "layoutstyle">
-					<option value = "browserdefualt">Defualt</option>
-					<option value = "monokai">Monokai</option>
-					<option value = "github">Github</option>
-					<option value = "paper">Paper</option>	
-				</select>
-				<span class = "button" title = "html"><img src="images/html.png" alt = "html" /></span>
+				<!-- 插入表格/图片/代码 -->
+				<div class = "buttonbox" id = "editorinsert">
+					<span title = "table"><img src = "images/table.png" alt = "table" /></span>
+					<span title = "code"><img src="images/code.gif" alt = "code" /></span>
+					<span title = "picture"><img src = "images/picture.png" alt = "picture" /></span>
+					<span title = "html"><img src="images/html.png" alt = "html" /></span>
+				</div>
+
+				<!-- 显示风格 -->
+				<div class = "buttonbox" id = "editorstyle">
+					<span title = "style1"><img src = "images/face0.png" alt = "style1" /></span>
+					<span title = "style2"><img src = "images/face1.png" alt = "style2" /></span>
+				</div>
+
+				<!-- 撤销/重做 -->
+				<div class = "buttonbox" id = "editorstyle">
+					<span title = "undo"><img src = "images/undo.png" alt = "undo" /></span>
+					<span title = "redo"><img src = "images/redo.png" alt = "redo" /></span>
+				</div>
 
 			</div>
-			<!-- <textarea id = "textarea">你好, 我是一个富文本编辑器的输入文本框</textarea> -->
 			<p id = "console">Hello World !!!</p>
 		</div>
 	</body>
@@ -158,8 +157,8 @@ window.onload = function() {
 	var console = document.getElementById("console");
 	// console.style.display = "none";
 	var iframe = document.createElement("iframe");
-	iframe.style.width = "500pt";
-	iframe.height = "240pt";
+	iframe.style.width = "100%";
+	iframe.height = "240px";
 	iframe.frameBorder = 0;
 	console.parentNode.insertBefore(iframe, console);
 	var iframeDocument = iframe.contentDocument || iframe.contentWindow.docment;
