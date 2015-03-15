@@ -3,55 +3,55 @@
 		<title>Example</title>
 		<meta charset = "utf-8">
 		<link rel = "stylesheet" type = "text/css" href = "editor.css" />
+		<link href="extensions/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+		<!--[if IE]>
+		<link href="extensions/fontawesome/css/font-awesome-ie7.min.css" rel="stylesheet" />
+		<![endif]-->
+		<script language = "javascript" type = "text/javascript" src = "extensions/showdown/showdown.js"></script>
+		<script language = "javascript" type = "text/javascript" src = "extensions/showdown/extensions/twitter.js"></script>
 		<script language = "javascript" type = "text/javascript" src = "editor.js"></script>
 	</head>
 	<body>
+		<h2>Markdown Editor</h2>
 		<div id = "editor">
 			<div id = "menu">
 				 <!-- 文本修饰 -->
-				<div class = "buttonbox" id = "editordecorate">
-					<span title = "bold"><img src = "images/bold.gif" alt = "bold" /></span>
-					<span title = "italic"><img src = "images/italic.png" alt = "italic" /></span>
-					<span title = "del"><img src = "images/del.gif" alt = "del" /></span>
-					<span title = "underline"><img src = "images/underline.png" alt = "underline" /></span>
+				<div class = "buttonbox">
+					<span title = "H2"><i class = "fa fa-header">2</i></span>
+					<span title = "H3"><i class = "fa fa-header">3</i></span>
+					<span title = "H4"><i class = "fa fa-header">4</i></span>
+					<span title = "H5"><i class = "fa fa-header">5</i></span>
 				</div>
-
-				<!-- 列表与缩进 -->
-				<div class = "buttonbox" id = "editorindent">
-					<span title = "insertunorderedlist"><img src = "images/insertunorderedlist.png" alt = "insertunorderedlist" /></span>
-					<span title = "insertorderedlist"><img src="images/insertorderedlist.png" alt = "insertorderedlist" /></span>
-					<span title = "indent"><img src="images/indent.png" alt = "indent" /></span>
-					<span title = "outdent"><img src="images/outdent.png" alt = "outdent" /></span>
+				<div class = "buttonbox">
+					<span title = "一级强调"><i class = "fa fa-italic"></i></span>
+					<span title = "二级强调"><i class = "fa fa-bold"></i></span>
+					<span title = "超链接"><i class = "fa fa-link"></i></span>
 				</div>
-
-				<!-- 超链接 -->
-				<div class = "buttonbox" id = "editorlink">
-					<span title = "link"><img src = "images/link.gif" alt = "link" /></span>
-					<span title = "linkremove"><img src = "images/linkremove.png" alt = "linkremove" /></span>
+				<div class = "buttonbox">
+					<span title = "无序列表"><i class = "fa fa-list-ul"></i></span>
+					<span title = "有序列表"><i class = "fa fa-list-ol"></i></span>
+					<span title = "引用"><i class = "fa fa-quote-left"></i></span>
+					<span title = "代码块"><i class = "fa fa-code"></i></span>
 				</div>
-
-				<!-- 插入表格/图片/代码 -->
-				<div class = "buttonbox" id = "editorinsert">
-					<span title = "table"><img src = "images/table.png" alt = "table" /></span>
-					<span title = "code"><img src="images/code.gif" alt = "code" /></span>
-					<span title = "picture"><img src = "images/picture.png" alt = "picture" /></span>
-					<span title = "html"><img src="images/html.png" alt = "html" /></span>
+				<div class = "buttonbox">
+					<span title = "插入横线"><i class = "fa fa-minus"></i></span>
+					<span title = "插入图片"><i class = "fa fa-picture-o"></i></span>
 				</div>
-
-				<!-- 显示风格 -->
-				<div class = "buttonbox" id = "editorstyle">
-					<span title = "style1"><img src = "images/face0.png" alt = "style1" /></span>
-					<span title = "style2"><img src = "images/face1.png" alt = "style2" /></span>
+				<div class = "buttonbox">
+					<span title = "撤销"><i class = "fa fa-undo"></i></span>
+					<span title = "重做"><i class = "fa fa-rotate-right"></i></span>
 				</div>
-
-				<!-- 撤销/重做 -->
-				<div class = "buttonbox" id = "editorstyle">
-					<span title = "undo"><img src = "images/undo.png" alt = "undo" /></span>
-					<span title = "redo"><img src = "images/redo.png" alt = "redo" /></span>
-				</div>
-
 			</div>
+			<textarea id = "textarea"></textarea>
 			<p id = "console">Hello World !!!</p>
 		</div>
+
+		<div>
+			<br />
+			<button id = "submit">Export as HTML and show below</button>
+		</div>
+
+		<br />
+		<textarea id = "exportresult" style = "width:500pt;height:20em;"></textarea>
 	</body>
 </html>

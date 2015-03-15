@@ -1,6 +1,5 @@
 #editor {
-	margin: auto;
-	width: 600pt;
+	width: 508pt;
 	border: solid 1px #CCC;
 	border-radius: 2px;
 	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
@@ -19,7 +18,7 @@
 
 #editor > textarea {
 	width: 100%;
-	height: 240pt;
+	height: 200pt;
 	background-color: #FFF;
 	border: 0;
 	margin-top: 10pt;
@@ -42,28 +41,31 @@
 
 .buttonbox > span {
 	height: 100%;
+	text-align: center;
 	border-left: solid 1px #CCC;
 	border-top: solid 1px #CCC;
 	border-bottom: solid 1px #CCC;
-	background-color: #EEE;
-	padding-left:  0.5em;
-	padding-right: 0.5em;
-	padding-top: 0.4em;
+	background-color: #FAFAFB;
+	padding: 0.2em 0.5em;
 	margin-right: -0.3em;
+}
+
+.buttonbox .fa {
+	width: 1.5em;
 }
 
 .buttonbox > span:hover {
 	cursor: hand;
-	background-color: #CCC;
+	background-color: #EEE;
 }
 
-/*.buttonbox > span:first-child {
+.buttonbox > span:first-child {
 	border-radius: 4px 0 0 4px;
-}*/
+}
 
 .buttonbox > span:last-child {
 	border-right: solid 1px #CCC;
-	/*border-radius: 0 4px 4px 0;*/
+	border-radius: 0 4px 4px 0;
 }
 
 #editor .button img {
