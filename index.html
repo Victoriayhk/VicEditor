@@ -2,106 +2,12 @@
 	<head>
 		<title>Example</title>
 		<meta charset = "utf-8">
-		<style type = "text/css">
-#editor {
-	margin: auto;
-	width: 600pt;
-	border: solid 1px #CCC;
-	border-radius: 2px;
-	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
-	-moz-box-shadow: 4pt 4pt 4pt #DDD;
-	box-shadow: 4pt 4pt 4pt #DDD;
-}
-
-#editor #menu {
-	padding: 0.5em;
-	background-color: #F8F8F8;
-	line-height: 2.2em;
-	-webkit-box-shadow: 0 4pt 4pt #DDD;
-	-moz-box-shadow: 0 4pt 4pt #DDD;
-	box-shadow: 0 4pt 4pt #DDD;
-}
-
-#editor > textarea {
-	width: 100%;
-	height: 240pt;
-	background-color: #FFF;
-	border: 0;
-	margin-top: 10pt;
-	padding: 0 0.3em;
-}
-
-#editor #console {
-	font-size: 8pt;
-	background-color: #F8F8F8;
-	line-height: 1.2em;
-	margin: 0;
-	padding: 0 0.3em;
-	border-top: solid 1px #CCC;
-}
-
-#editor .buttonbox {
-	display: inline;
-	margin-right: 0.5em;
-}
-
-.buttonbox > span {
-	height: 100%;
-	border-left: solid 1px #CCC;
-	border-top: solid 1px #CCC;
-	border-bottom: solid 1px #CCC;
-	background-color: #EEE;
-	padding-left:  0.5em;
-	padding-right: 0.5em;
-	padding-top: 0.4em;
-	margin-right: -0.3em;
-}
-
-.buttonbox > span:hover {
-	cursor: hand;
-	background-color: #CCC;
-}
-
-.buttonbox > span:first-child {
-	/*border-radius: 4px 0 0 4px;*/
-}
-
-.buttonbox > span:last-child {
-	border-right: solid 1px #CCC;
-	/*border-radius: 0 4px 4px 0;*/
-}
-
-#editor .button img {
-	height: 1.2em;
-	padding: 0 0 0 0;
-}
-		</style>
+		<link rel = "stylesheet" type = "text/css" href = "editor.css" />
+		<script language = "javascript" type = "text/javascript" src = "editor.js"></script>
 	</head>
 	<body>
 		<div id = "editor">
 			<div id = "menu">
-				<!-- 文本
-					文本级别			  : H1, H2, H3, H4, H5, H6, p, quote, code, pre, list, table等
-				    文本修饰(不影响布局)  : 斜体, 加粗, 下划线, 删除线, 颜色?, 上标, 下标
-				    其它文本属性(影响布局): 字体(衬线, 无衬线, 等宽), 字间隔, 字体大小
-				 -->
-				
-				<!-- 段落修饰:
-					行距, 缩进, 对齐方式
-				-->
-
-				<!-- 其它功能:
-					图片插入
-					公式编辑
-					html代码模式
-				-->
-
-				<!-- 第一阶段:
-					不考虑style和css样式的定制, 初步实现如下功能:
-					+ 加粗, 斜体, 下划线, 删除线, 上下标
-				 -->
-
-
 				 <!-- 文本修饰 -->
 				<div class = "buttonbox" id = "editordecorate">
 					<span title = "bold"><img src = "images/bold.gif" alt = "bold" /></span>
@@ -148,45 +54,4 @@
 			<p id = "console">Hello World !!!</p>
 		</div>
 	</body>
-	<script type="text/javascript">
-window.onload = function() {
-	var editor 	 = document.getElementById("editor");
-	var buttons  = editor.getElementsByTagName("span");
-	var selects  = editor.getElementsByTagName("select");
-
-	var console = document.getElementById("console");
-	// console.style.display = "none";
-	var iframe = document.createElement("iframe");
-	iframe.style.width = "100%";
-	iframe.height = "240px";
-	iframe.frameBorder = 0;
-	console.parentNode.insertBefore(iframe, console);
-	var iframeDocument = iframe.contentDocument || iframe.contentWindow.docment;
-	iframeDocument.designMode = "on";
-	iframeDocument.open();
-	iframeDocument.write('<html><head></head><body></body></html>');
-	iframeDocument.close();
-
-
-	for(var i = 0,l = buttons.length; i < l; i++) {
-	   	buttons[i].onclick = new function() {
-	        var command = buttons[i].getAttribute("title");
-	        return function() {
-	        	iframeDocument.execCommand(command);
-	        }
-	    }
-	}
-
-	for (var i = 0, l = selects.length; i < l; i++) {
-		selects[i].onchange = new function() {
-			var select = selects[i];
-			return function() {
-				var command = select.getAttribute("title");
-				value = select.options[select.selectedIndex].value;
-				iframeDocument.execCommand(command, false, value);
-			}
-		}
-	}
-}
-	</script>
 </html>

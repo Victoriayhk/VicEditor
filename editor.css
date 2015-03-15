@@ -1,0 +1,72 @@
+#editor {
+	margin: auto;
+	width: 600pt;
+	border: solid 1px #CCC;
+	border-radius: 2px;
+	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
+	-moz-box-shadow: 4pt 4pt 4pt #DDD;
+	box-shadow: 4pt 4pt 4pt #DDD;
+}
+
+#editor #menu {
+	padding: 0.5em;
+	background-color: #F8F8F8;
+	line-height: 2.2em;
+	-webkit-box-shadow: 0 4pt 4pt #DDD;
+	-moz-box-shadow: 0 4pt 4pt #DDD;
+	box-shadow: 0 4pt 4pt #DDD;
+}
+
+#editor > textarea {
+	width: 100%;
+	height: 240pt;
+	background-color: #FFF;
+	border: 0;
+	margin-top: 10pt;
+	padding: 0 0.3em;
+}
+
+#editor #console {
+	font-size: 8pt;
+	background-color: #F8F8F8;
+	line-height: 1.2em;
+	margin: 0;
+	padding: 0 0.3em;
+	border-top: solid 1px #CCC;
+}
+
+#editor .buttonbox {
+	display: inline;
+	margin-right: 0.5em;
+}
+
+.buttonbox > span {
+	height: 100%;
+	border-left: solid 1px #CCC;
+	border-top: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	background-color: #EEE;
+	padding-left:  0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.4em;
+	margin-right: -0.3em;
+}
+
+.buttonbox > span:hover {
+	cursor: hand;
+	background-color: #CCC;
+}
+
+/*.buttonbox > span:first-child {
+	border-radius: 4px 0 0 4px;
+}*/
+
+.buttonbox > span:last-child {
+	border-right: solid 1px #CCC;
+	/*border-radius: 0 4px 4px 0;*/
+}
+
+#editor .button img {
+	height: 1.2em;
+	padding: 0 0 0 0;
+}
