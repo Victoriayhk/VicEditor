@@ -1,5 +1,9 @@
+body {
+	margin-left: 20%;
+}
+
 #viceditor {
-	width: 500pt;
+	width: 510pt;
 	border: solid 1px #CCC;
 	border-radius: 2px;
 	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
@@ -23,26 +27,27 @@
 		}
 
 			#viceditor .vicbuttonbox > span {
-				height: 100%;
+				height: 2.2em;
 				text-align: center;
 				border-left: solid 1px #CCC;
 				border-top: solid 1px #CCC;
 				border-bottom: solid 1px #CCC;
+				border-right: 0;
 				background-color: #FAFAFB;
 				padding: 0.2em 0.5em;
 				margin-right: -0.3em;
 			}
 
-				.vicbuttonbox > span:first-child {
+				#viceditor .vicbuttonbox > span:first-child {
 					border-radius: 4px 0 0 4px;
 				}
 
-				.vicbuttonbox > span:last-child {
+				#viceditor .vicbuttonbox > span:last-child {
 					border-right: solid 1px #CCC;
 					border-radius: 0 4px 4px 0;
 				}
 
-				.vicbuttonbox > span:hover {
+				#viceditor .vicbuttonbox > span:hover {
 					cursor: hand;
 					background-color: #EEE;
 				}
@@ -59,11 +64,16 @@
 		color: #FFF;
 		margin-top: 5pt;
 		padding: 0.6em 0.4em;
-		font-size: 11pt;
+		font-size: 12pt;
+		line-height: 1.4em;
 	}
 
 		#viceditor #vicinputarea:focus {
 			outline: none !important;
+		}
+
+		#viceditor #vicinputarea::selection {
+    		background-color: #BBB;
 		}
 
 	#viceditor #vicstatusbar {
