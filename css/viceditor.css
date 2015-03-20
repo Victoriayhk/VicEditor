@@ -1,86 +1,85 @@
+* { margin: 0; padding: 0; }
+
 body {
-	margin-left: 20%;
+	background-color: #EEE;
+	font-family: 12pt, sans-serif;
 }
 
-#viceditor {
-	width: 510pt;
-	border: solid 1px #CCC;
-	border-radius: 2px;
-	-webkit-box-shadow: 4pt 4pt 4pt #DDD;
-	-moz-box-shadow: 4pt 4pt 4pt #DDD;
-	box-shadow: 4pt 4pt 4pt #DDD;
+#menu {
+	border-bottom: solid #AAA 1px;
 }
 
-	#viceditor #vicmenubar {
-		padding-top: 0.5em;
-		padding-bottom: 0.5em;
-		background-color: #F8F8F8;
-		line-height: 2.2em;
-		-webkit-box-shadow: 0 2pt 2pt #DDD;
-		-moz-box-shadow: 0 2pt 2pt #DDD;
-		box-shadow: 0 2pt 2pt #DDD;
-	}
+.multi_drop_menu { /* 菜单条 */
+	/*width: 100%;*/
+	height: 2.75em;
+	margin-left: 0;
+	font: 1em helvetica, arial, sans-serif;
+	padding-left: 1em;
+	background-color: #1C86EE;
+}
+.multi_drop_menu li {
+	float: left;
+	list-style-type: none;
+	position: relative;
+}
+.multi_drop_menu a {
+	color: #FFF;
+	text-decoration: none;
+	padding: 0.8em 1em;
+	background-color: #1C86EE;
+	display: block;
+}
+.multi_drop_menu a:hover {
+	background-color: #CCC;
+}
 
-		#viceditor .vicbuttonbox {
-			display: inline;
-			margin-left: 0.5em;
-		}
+.multi_drop_menu li li {
+	width: 100%;
+	float: none;
+	font-size: 0.8em;
+	border-left: solid 1px #CCC;
+	border-right: solid 1px #CCC;
+}
+.multi_drop_menu li li:last-child {
+	border-bottom: solid 1px #CCC;
+}
+.multi_drop_menu ul ul li:first-child {
+	border-top: solid 1px #CCC;
+}
+.multi_drop_menu li li a {
+	background-color: #FFF;
+	color: #888;
+}
+.multi_drop_menu li li a:hover {
+	background-color: #EEE;
+	color: #000;
+	font-weight: bold;
+}
+.multi_drop_menu li ul {
+	border-top: 0;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 15em;
+}
+.multi_drop_menu li li ul {
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
 
-			#viceditor .vicbuttonbox > span {
-				height: 2.2em;
-				text-align: center;
-				border-left: solid 1px #CCC;
-				border-top: solid 1px #CCC;
-				border-bottom: solid 1px #CCC;
-				border-right: 0;
-				background-color: #FAFAFB;
-				padding: 0.2em 0.5em;
-				margin-right: -0.3em;
-			}
+.multi_drop_menu li:hover > ul {
+	display: block;
+}
 
-				#viceditor .vicbuttonbox > span:first-child {
-					border-radius: 4px 0 0 4px;
-				}
-
-				#viceditor .vicbuttonbox > span:last-child {
-					border-right: solid 1px #CCC;
-					border-radius: 0 4px 4px 0;
-				}
-
-				#viceditor .vicbuttonbox > span:hover {
-					cursor: hand;
-					background-color: #EEE;
-				}
-
-				#viceditor .vicbuttonbox .fa {
-					width: 1.5em;
-				}
-
-	#viceditor #vicinputarea {
-		width: 100%;
-		height: 200pt;
-		border: 0;
-		background-color: #000;
-		color: #FFF;
-		margin-top: 5pt;
-		padding: 0.6em 0.4em;
-		font-size: 12pt;
-		line-height: 1.4em;
-	}
-
-		textarea:focus {
-			outline: none !important;
-		}
-
-		#viceditor #vicinputarea::selection {
-    		background-color: #BBB;
-		}
-
-	#viceditor #vicstatusbar {
-		font-size: 8pt;
-		background-color: #F8F8F8;
-		line-height: 1.2em;
-		margin: 0;
-		padding: 0 0.3em;
-		border-top: solid 1px #CCC;
-	}
+#editarea {
+	display: block;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 2.75em;
+	background-color: #EEE;
+	overflow-y: auto;
+}

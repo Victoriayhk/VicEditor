@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>VicEditor</title>
+		<title>My Word</title>
 		<meta charset = "utf-8">
 		<link rel = "stylesheet" type = "text/css" href = "css/viceditor.css" />
 		<link href="extensions/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -14,60 +14,81 @@
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
 	<body onload = "prettyPrint()">
-		<h2>Markdown Editor</h2>
-		<div id = "viceditor">
-			<div id = "vicmenubar">
-				<div id = 'heading', class = "vicbuttonbox">
-                    <span title = "H2"><i class = "fa fa-header">2</i></span>
-                    <span title = "H3"><i class = "fa fa-header">3</i></span>
-                    <span title = "H4"><i class = "fa fa-header">4</i></span>
-                    <span title = "H5"><i class = "fa fa-header">5</i></span>
-                </div>
-				<div id = 'single' class = "vicbuttonbox">
-				<!-- 
-					-[X] bold
-					-[] insertLineBreak
-					-[] selectAll
-					-[X] insertOrderedList
-					-[X] subscript
-					-[] delete
-					-[X] insertUnorderedList
-					-[X] superscript
-					-[] formatBlock
-					-[] insertParagraph
-					-[X] undo
-					-[] forwardDelete
-					-[] insertText
-					-[] unlink
-					-[] insertImage
-					-[X] italic
-					-[] unselect
-					-[] insertHTML
-					-[X] redo
-				 -->
-					<span title = "bold"><i class = "fa fa-bold"></i></span>
-					<span title = "italic"><i class = "fa fa-italic"></i></span>
-					<span title = "superscript"><i class = "fa fa-superscript"></i></span>
-					<span title = "subscript"><i class = "fa fa-subscript"></i></span>
-					<span title = "insertUnorderedList"><i class = "fa fa-list-ul"></i></span>
-					<span title = "insertorderedList"><i class = "fa fa-list-ol"></i></span>
-					<span title = "undo"><i class = "fa fa-undo"></i></span>
-					<span title = "redo"><i class = "fa fa-rotate-right"></i></span>
-				</div>
-				<div id = 'prompt' class = "vicbuttonbox">
-					<span title = "createLink"><i class = "fa fa-Link"></i></span>
-				</div>
-			</div>
-			<input type = "hidden" id = "viceditarea"></input>
-			<p id = "vicstatusbar">Hello World !!!</p>
+		<div id = 'menu'>
+			<ul class = 'multi_drop_menu'>
+				<li>
+					<a href="#">File</a>
+					<ul>
+						<li><a href="#">Import Markdown File...</a></li>
+						<li><a href="#">Export</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Edit</a>
+					<ul>
+						<li><a href="#">Undo</a></li>
+						<li><a href="#">Redo</a></li>
+						<li><a href="#">Paste</a></li>
+						<li><a href="#">Select All</a></li>
+						<li><a href="#">Find and Replace...</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Insert</a>
+					<ul>
+						<li><a href="#">Image...</a></li>
+						<li><a href="#">Link...</a></li>
+						<li><a href="#">Equation...</a></li>
+						<li><a href="#">Drawing...</a></li>
+						<li><a href="#">Table...</a></li>
+						<li><a href="#">Footnote...</a></li>
+						<li><a href="#">Special Characters...</a></li>
+						<li><a href="#">Horizontal Line...</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Format</a>
+					<ul>
+						<li><a id = 'bold' href="#">Bold</a></li>
+						<li><a id = 'italic' href="#">Italic</a></li>
+						<li><a href="#">Underline</a></li>
+						<li><a href="#">Strikethrough</a></li>
+						<li><a href="#">Supperscript</a></li>
+						<li><a href="#">Subscript</a></li>
+						<li>
+							<a href="#">Paragraph Styles</a>
+							<ul>
+								<li><a href="#">Normal Text</a></li>
+								<li><a href="#">H1</a></li>
+								<li><a href="#">H2</a></li>
+								<li><a href="#">H3</a></li>
+								<li><a href="#">H4</a></li>
+								<li><a href="#">H5</a></li>
+								<li><a href="#">H6</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Lists</a></li>
+						<li><a href="#">Clear Farmatting</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Tools</a>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Table</a>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
-
-		<div>
-			<br />
-			<button id = "export">Export as HTML and show below</button>
+		<div id = 'editarea'>
+			<input type = 'hidden' id = 'vichidden'></input>
 		</div>
-
-		<br />
-		<textarea id = "output" style = "width:510pt;height:20em;" readonly="readonly"></textarea>
 	</body>
 </html>
