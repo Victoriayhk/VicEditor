@@ -17,43 +17,57 @@
 		<h2>Markdown Editor</h2>
 		<div id = "viceditor">
 			<div id = "vicmenubar">
-				 <!-- 文本修饰 -->
-				<div class = "vicbuttonbox">
-					<span id = 'vich1' title = "H2"><i class = "fa fa-header">2</i></span>
-					<span title = "H3"><i class = "fa fa-header">3</i></span>
-					<span title = "H4"><i class = "fa fa-header">4</i></span>
-					<span title = "H5"><i class = "fa fa-header">5</i></span>
+				<div id = 'heading', class = "vicbuttonbox">
+                    <span title = "H2"><i class = "fa fa-header">2</i></span>
+                    <span title = "H3"><i class = "fa fa-header">3</i></span>
+                    <span title = "H4"><i class = "fa fa-header">4</i></span>
+                    <span title = "H5"><i class = "fa fa-header">5</i></span>
+                </div>
+				<div id = 'single' class = "vicbuttonbox">
+				<!-- 
+					-[X] bold
+					-[] insertLineBreak
+					-[] selectAll
+					-[X] insertOrderedList
+					-[X] subscript
+					-[] delete
+					-[X] insertUnorderedList
+					-[X] superscript
+					-[] formatBlock
+					-[] insertParagraph
+					-[X] undo
+					-[] forwardDelete
+					-[] insertText
+					-[] unlink
+					-[] insertImage
+					-[X] italic
+					-[] unselect
+					-[] insertHTML
+					-[X] redo
+				 -->
+					<span title = "bold"><i class = "fa fa-bold"></i></span>
+					<span title = "italic"><i class = "fa fa-italic"></i></span>
+					<span title = "superscript"><i class = "fa fa-superscript"></i></span>
+					<span title = "subscript"><i class = "fa fa-subscript"></i></span>
+					<span title = "insertUnorderedList"><i class = "fa fa-list-ul"></i></span>
+					<span title = "insertorderedList"><i class = "fa fa-list-ol"></i></span>
+					<span title = "undo"><i class = "fa fa-undo"></i></span>
+					<span title = "redo"><i class = "fa fa-rotate-right"></i></span>
 				</div>
-				<div class = "vicbuttonbox">
-					<span title = "bold"><i class = "fa fa-italic"></i></span>
-					<span title = "italic"><i class = "fa fa-bold"></i></span>
-					<span title = "link"><i class = "fa fa-link"></i></span>
-				</div>
-				<div class = "vicbuttonbox">
-					<span title = "无序列表"><i class = "fa fa-list-ul"></i></span>
-					<span title = "有序列表"><i class = "fa fa-list-ol"></i></span>
-					<span title = "引用"><i class = "fa fa-quote-left"></i></span>
-					<span title = "代码块"><i class = "fa fa-code"></i></span>
-				</div>
-				<div class = "vicbuttonbox">
-					<span title = "插入横线"><i class = "fa fa-minus"></i></span>
-					<span title = "插入图片"><i class = "fa fa-picture-o"></i></span>
-				</div>
-				<div class = "vicbuttonbox">
-					<span title = "撤销"><i class = "fa fa-undo"></i></span>
-					<span title = "重做"><i class = "fa fa-rotate-right"></i></span>
+				<div id = 'prompt' class = "vicbuttonbox">
+					<span title = "createLink"><i class = "fa fa-Link"></i></span>
 				</div>
 			</div>
-			<textarea id = "vicinputarea" tabindex='0'></textarea>
+			<input type = "hidden" id = "viceditarea"></input>
 			<p id = "vicstatusbar">Hello World !!!</p>
 		</div>
 
 		<div>
 			<br />
-			<button id = "submit">Export as HTML and show below</button>
+			<button id = "export">Export as HTML and show below</button>
 		</div>
 
 		<br />
-		<textarea id = "exportresult" style = "width:510pt;height:20em;"></textarea>
+		<textarea id = "output" style = "width:510pt;height:20em;" readonly="readonly"></textarea>
 	</body>
 </html>
