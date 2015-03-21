@@ -1,0 +1,65 @@
+.multi_drop_menu { /* 菜单条 */
+	height: 2.75em;
+	margin-left: 0;
+	font: 1em helvetica, arial, sans-serif;
+	padding-left: 1em;
+	background-color: #1C86EE;
+}
+.multi_drop_menu li {
+	float: left;
+	list-style-type: none;
+	position: relative;
+}
+.multi_drop_menu a {
+	color: #FFF;
+	text-decoration: none;
+	padding: 0.8em 1em;
+	background-color: #1C86EE;
+	display: block;
+}
+.multi_drop_menu ul a {
+	padding: 0.6em 1em;
+}
+.multi_drop_menu a:hover {
+	background-color: #CCC;
+}
+
+.multi_drop_menu li li {
+	width: 100%;
+	float: none;
+	font-size: 9pt;
+}
+.multi_drop_menu ul {
+	background-color: #FFF;
+	border-left: solid 1px #CCC;
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+.multi_drop_menu ul ul {
+	border-top: solid 1px #CCC;
+}
+.multi_drop_menu li li a {
+	background-color: #FFF;
+	color: #888;
+}
+.multi_drop_menu li li a:hover {
+	background-color: #EEE;
+	color: #000;
+	font-weight: bold;
+}
+.multi_drop_menu li ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 15em;
+}
+.multi_drop_menu li li ul {
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+
+.multi_drop_menu li:hover > ul {
+	display: block;
+}

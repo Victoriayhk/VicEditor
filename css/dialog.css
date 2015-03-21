@@ -1,0 +1,43 @@
+.dialog {
+	display: none;
+	position: relative;
+	left: 0;
+	top: 100%;
+	margin: auto;
+	padding: 8pt;
+	width: auto;
+	height: auto;
+	text-align: center;
+	font: 10pt Verdana;
+	border: solid 1px #CCC;
+	-webkit-box-shadow: 0pt 0pt 4pt #CCC;\
+	-moz-box-shadow: 0pt 0pt 4pt #CCC;\
+	box-shadow: 0pt 0pt 4pt #CCC;
+	z-index: 100000;
+}
+
+.dialog input[type=text] {
+	height: 2em;
+	width: 200pt;
+	border: solid 1px #CCC;
+}
+
+.dialog button {
+	font-weight: bold;
+	color: #FFF;
+	background-color: #1C86EE;
+	margin-left: 0.2em;
+	height: 2em;
+	width: 6em;
+	border: 0;
+	border-radius: 2pt;
+	cursor: hand;
+}
+
+.dialog tr {
+	line-height: 2em;
+}
+
+.dialog td:first-child {
+	text-align: right;
+}

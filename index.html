@@ -14,8 +14,8 @@
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
 	<body onload = "prettyPrint()">
-		<div id = 'menu'>
-			<ul class = 'multi_drop_menu'>
+		<div id = "menu">
+			<ul class = "multi_drop_menu">
 				<li>
 					<a href="#">File</a>
 					<ul>
@@ -26,10 +26,11 @@
 				<li>
 					<a href="#">Edit</a>
 					<ul>
-						<li><a href="#">Undo</a></li>
-						<li><a href="#">Redo</a></li>
-						<li><a href="#">Paste</a></li>
-						<li><a href="#">Select All</a></li>
+						<li><a id = "undo" href="#">Undo</a></li>
+						<li><a id = "redo" href="#">Redo</a></li>
+						<hr />
+						<li><a id = "paste" href="#">Paste</a></li>
+						<li><a id = "selectall" href="#">Select All</a></li>
 						<li><a href="#">Find and Replace...</a></li>
 					</ul>
 				</li>
@@ -49,26 +50,43 @@
 				<li>
 					<a href="#">Format</a>
 					<ul>
-						<li><a id = 'bold' href="#">Bold</a></li>
-						<li><a id = 'italic' href="#">Italic</a></li>
-						<li><a href="#">Underline</a></li>
-						<li><a href="#">Strikethrough</a></li>
-						<li><a href="#">Supperscript</a></li>
-						<li><a href="#">Subscript</a></li>
+						<li><a id = "bold" href="#">Bold</a></li>
+						<li><a id = "italic" href="#">Italic</a></li>
+						<li><a id = "underline" href="#">Underline</a></li>
+						<li><a id = "strikethrough" href="#">Strikethrough</a></li>
+						<li><a id = "superscript" href="#">Supperscript</a></li>
+						<li><a id = "subscript" href="#">Subscript</a></li>
+						<hr />
 						<li>
 							<a href="#">Paragraph Styles</a>
 							<ul>
-								<li><a href="#">Normal Text</a></li>
-								<li><a href="#">H1</a></li>
-								<li><a href="#">H2</a></li>
-								<li><a href="#">H3</a></li>
-								<li><a href="#">H4</a></li>
-								<li><a href="#">H5</a></li>
-								<li><a href="#">H6</a></li>
+								<li><a id = "normaltext" href="#">Normal Text</a></li>
+								<li><a id = "h1" href="#">H1</a></li>
+								<li><a id = "h2" href="#">H2</a></li>
+								<li><a id = "h3" href="#">H3</a></li>
+								<li><a id = "h4" href="#">H4</a></li>
+								<li><a id = "h5" href="#">H5</a></li>
+								<li><a id = "h6" href="#">H6</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Lists</a></li>
-						<li><a href="#">Clear Farmatting</a></li>
+						<li>
+							<a href="#">Align</a>
+							<ul>
+								<li><a id = "justifyleft" href="#">Left</a></li>
+								<li><a id = "justifyright" href="#">Right</a></li>								
+								<li><a id = "justifycenter" href="#">Center</a></li>
+								<li><a id = "justifyfull" href="#">Justify</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Lists</a>
+							<ul>
+								<li><a id = "insertorderedList" href="#">OrderedList</a></li>
+								<li><a id = "insertunorderedList" href="#">UnorderedList</a></li>
+							</ul>
+						</li>
+						<hr />
+						<li><a id = "removeformat" href="#">Clear Farmatting</a></li>
 					</ul>
 				</li>
 				<li>
@@ -86,9 +104,11 @@
 					</ul>
 				</li>
 			</ul>
+			<div class = "quick_menu">
+			</div>
 		</div>
-		<div id = 'editarea'>
-			<input type = 'hidden' id = 'vichidden'></input>
+		<div id = "editarea">
+			<input type = "hidden" id = "vichidden"></input>
 		</div>
 	</body>
 </html>
