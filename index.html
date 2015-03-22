@@ -11,94 +11,95 @@
 		<script type = "text/javascript" src = "extensions/showdown/showdown.js"></script>
 		<script type = "text/javascript" src = "extensions/showdown/extensions/twitter.js"></script>
 		<script type = "text/javascript" src = "extensions/google-code-prettify/prettify.js"></script>
+		<script type = "text/javascript" src = "js/jquery-2.1.3.min.js"></script>
 		<script type = "text/javascript" src = "js/page.js"></script>
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
 	<body onload = "prettyPrint()">
 		<div id = "menu">
-			<ul class = "multi_drop_menu">
+			<ul class = "top_menu">
 				<li>
-					<a href="#">File</a>
+					<a>File</a>
 					<ul>
-						<li><a href="#">Import Markdown File...</a></li>
-						<li><a href="#">Export</a></li>
+						<li><a>Import Markdown File...</a></li>
+						<li><a>Export</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Edit</a>
+					<a>Edit</a>
 					<ul>
-						<li><a id = "undo" href="#">Undo</a></li>
-						<li><a id = "redo" href="#">Redo</a></li>
+						<li><a title = "undo">Undo</a></li>
+						<li><a title = "redo">Redo</a></li>
 						<hr />
-						<li><a id = "paste" href="#">Paste</a></li>
-						<li><a id = "selectall" href="#">Select All</a></li>
-						<li><a href="#">Find and Replace...</a></li>
+						<li><a title = "paste">Paste</a></li>
+						<li><a title = "selectall">Select All</a></li>
+						<li><a>Find and Replace...</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Insert</a>
+					<a>Insert</a>
 					<ul>
-						<li><a href="#">Image...</a></li>
-						<li><a id = "link" href="#">Link...</a></li>
-						<li><a href="#">Equation...</a></li>
-						<li><a href="#">Drawing...</a></li>
-						<li><a href="#">Table...</a></li>
-						<li><a href="#">Footnote...</a></li>
-						<li><a href="#">Special Characters...</a></li>
-						<li><a href="#">Horizontal Line...</a></li>
+						<li><a>Image...</a></li>
+						<li><a title = "link">Link...</a></li>
+						<li><a>Equation...</a></li>
+						<li><a>Drawing...</a></li>
+						<li><a>Table...</a></li>
+						<li><a>Footnote...</a></li>
+						<li><a>Special Characters...</a></li>
+						<li><a>Horizontal Line...</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Format</a>
+					<a>Format</a>
 					<ul>
-						<li><a id = "bold" href="#">Bold</a></li>
-						<li><a id = "italic" href="#">Italic</a></li>
-						<li><a id = "underline" href="#">Underline</a></li>
-						<li><a id = "strikethrough" href="#">Strikethrough</a></li>
-						<li><a id = "superscript" href="#">Supperscript</a></li>
-						<li><a id = "subscript" href="#">Subscript</a></li>
+						<li><a title = "bold">Bold</a></li>
+						<li><a title = "italic">Italic</a></li>
+						<li><a title = "underline">Underline</a></li>
+						<li><a title = "strikethrough">Strikethrough</a></li>
+						<li><a title = "superscript">Supperscript</a></li>
+						<li><a title = "subscript">Subscript</a></li>
 						<hr />
 						<li>
-							<a href="#">Paragraph Styles</a>
+							<a>Paragraph Styles</a>
 							<ul>
-								<li><a id = "normaltext" href="#">Normal Text</a></li>
-								<li><a id = "h1" href="#">H1</a></li>
-								<li><a id = "h2" href="#">H2</a></li>
-								<li><a id = "h3" href="#">H3</a></li>
-								<li><a id = "h4" href="#">H4</a></li>
-								<li><a id = "h5" href="#">H5</a></li>
-								<li><a id = "h6" href="#">H6</a></li>
+								<li><a title = "normaltext">Normal Text</a></li>
+								<li><a title = "h1">H1</a></li>
+								<li><a title = "h2">H2</a></li>
+								<li><a title = "h3">H3</a></li>
+								<li><a title = "h4">H4</a></li>
+								<li><a title = "h5">H5</a></li>
+								<li><a title = "h6">H6</a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="#">Align</a>
+							<a>Align</a>
 							<ul>
-								<li><a id = "justifyleft" href="#">Left</a></li>
-								<li><a id = "justifyright" href="#">Right</a></li>								
-								<li><a id = "justifycenter" href="#">Center</a></li>
-								<li><a id = "justifyfull" href="#">Justify</a></li>
+								<li><a title = "justifyleft">Left</a></li>
+								<li><a title = "justifyright">Right</a></li>								
+								<li><a title = "justifycenter">Center</a></li>
+								<li><a title = "justifyfull">Justify</a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="#">Lists</a>
+							<a>Lists</a>
 							<ul>
-								<li><a id = "insertorderedList" href="#">OrderedList</a></li>
-								<li><a id = "insertunorderedList" href="#">UnorderedList</a></li>
+								<li><a title = "insertorderedList">OrderedList</a></li>
+								<li><a title = "insertunorderedList">UnorderedList</a></li>
 							</ul>
 						</li>
 						<hr />
-						<li><a id = "removeformat" href="#">Clear Farmatting</a></li>
+						<li><a title = "removeformat">Clear Farmatting</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Tools</a>
+					<a>Tools</a>
 					<ul>
 						<li><a href=""></a></li>
 						<li><a href=""></a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Table</a>
+					<a>Table</a>
 					<ul>
 						<li><a href=""></a></li>
 						<li><a href=""></a></li>
@@ -106,6 +107,42 @@
 				</li>
 			</ul>
 			<div class = "quick_menu">
+				<div class = "box">
+					<span class = "fa fa-save" title = ""></span>
+					<span class = "fa fa-print" title = ""></span>
+					<span class = "fa fa-undo" title = ""></span>
+					<span class = "fa fa-repeat" title = ""></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-bold" title = "bold"></span>
+					<span class = "fa fa-italic" title = "italic"></span>
+					<span class = "fa fa-underline" title = "underline"></span>
+					<span class = "fa fa-strikethrough" title = "strikethrough"></span>
+					<span class = "fa fa-font" title = "forecolor"></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-align-left" title = "justifyleft"></span>
+					<span class = "fa fa-align-center" title = "justifycenter"></span>
+					<span class = "fa fa-align-right" title = "justifyright"></span>
+					<span class = "fa fa-align-justify" title = "justifyfull"></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-list-ol" title = "insertorderedList"></span>
+					<span class = "fa fa-list-ul" title = "insertunorderedList"></span>
+					<span class = "fa fa-indent" title = "indent"></span>
+					<span class = "fa fa-outdent" title = "outdent"></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-chain" title = ""></span>
+					<span class = "fa fa-chain-broken" title = ""></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-eraser" title = ""></span>
+				</div>
+				<div class = "box">
+					<span class = "fa fa-thumb-tack" title = "insert markdown text"></span>
+					<span class = "fa fa-toggle-off" title = "mardownon"></span>
+				</div>
 			</div>
 		</div>
 		<div id = "editarea">

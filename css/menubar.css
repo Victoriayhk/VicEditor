@@ -1,69 +1,103 @@
-/* dropdown menubar*/
-.multi_drop_menu {
+/* top dropdown menubar*/
+.top_menu {
 	height: 2.75em;
 	margin-left: 0;
 	font: 1em helvetica, arial, sans-serif;
 	padding-left: 1em;
+	vertical-align: center;
 	background-color: #1C86EE;
 }
-.multi_drop_menu li {
+.top_menu li {
 	float: left;
 	list-style-type: none;
 	position: relative;
 }
-.multi_drop_menu a {
+.top_menu a {
 	color: #FFF;
 	text-decoration: none;
 	padding: 0.8em 1em;
 	background-color: #1C86EE;
 	display: block;
 }
-.multi_drop_menu ul a {
+.top_menu ul a {
 	padding: 0.6em 1em;
 }
-.multi_drop_menu a:hover {
+.top_menu a:hover {
 	background-color: #CCC;
 }
 
-.multi_drop_menu li li {
+.top_menu li li {
 	width: 100%;
 	float: none;
 	font-size: 9pt;
 }
-.multi_drop_menu ul {
+.top_menu li ul {
 	background-color: #FFF;
 	border-left: solid 1px #CCC;
 	border-right: solid 1px #CCC;
 	border-bottom: solid 1px #CCC;
 }
-.multi_drop_menu ul ul {
-	border-top: solid 1px #CCC;
-}
-.multi_drop_menu li li a {
+.top_menu li li a {
 	background-color: #FFF;
 	color: #888;
 }
-.multi_drop_menu li li a:hover {
+.top_menu li li a:hover {
 	background-color: #EEE;
 	color: #000;
 	font-weight: bold;
 }
-.multi_drop_menu li ul {
+.top_menu li ul {
 	display: none;
 	position: absolute;
 	left: 0;
 	top: 100%;
 	width: 15em;
 }
-.multi_drop_menu li li ul {
+.top_menu li li ul {
+	border-top: solid 1px #CCC;
 	position: absolute;
 	left: 100%;
 	top: 0;
 }
-
-.multi_drop_menu li:hover > ul {
+.top_menu li:hover > * {
 	display: block;
 }
 
 
-/* menu */
+/* quick menu */
+.quick_menu {
+	width: 100%;
+	background-color: #EEE;
+	border-bottom: solid 1px #CCC;
+	padding-left: 3em;
+}
+.quick_menu .box {
+	display: inline-block;
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+	padding-left: 0.5em;
+	border-left: solid 1px #CCC;
+}
+.quick_menu .box:first-child {
+	border-left: 0;
+}
+.quick_menu span {
+	font-size: 0.9em;
+	text-decoration: none;
+	color: #666;
+	width: 1.6em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	margin: 0;
+	text-align: center;
+	border: solid 1px transparent;
+	display: inline-block;
+}
+.quick_menu span:hover {
+	color: #444;
+	border: solid 1px #CCC;
+	cursor: hand;
+}
+.quick_menu .fa-toggle-off:hover {
+	border: 0;
+}
