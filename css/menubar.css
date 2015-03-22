@@ -1,4 +1,5 @@
-.multi_drop_menu { /* 菜单条 */
+/* dropdown menubar*/
+.multi_drop_menu {
 	height: 2.75em;
 	margin-left: 0;
 	font: 1em helvetica, arial, sans-serif;
@@ -63,3 +64,6 @@
 .multi_drop_menu li:hover > ul {
 	display: block;
 }
+
+
+/* menu */

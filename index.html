@@ -11,6 +11,7 @@
 		<script type = "text/javascript" src = "extensions/showdown/showdown.js"></script>
 		<script type = "text/javascript" src = "extensions/showdown/extensions/twitter.js"></script>
 		<script type = "text/javascript" src = "extensions/google-code-prettify/prettify.js"></script>
+		<script type = "text/javascript" src = "js/page.js"></script>
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
 	<body onload = "prettyPrint()">
@@ -38,7 +39,7 @@
 					<a href="#">Insert</a>
 					<ul>
 						<li><a href="#">Image...</a></li>
-						<li><a href="#">Link...</a></li>
+						<li><a id = "link" href="#">Link...</a></li>
 						<li><a href="#">Equation...</a></li>
 						<li><a href="#">Drawing...</a></li>
 						<li><a href="#">Table...</a></li>
@@ -109,6 +110,14 @@
 		</div>
 		<div id = "editarea">
 			<input type = "hidden" id = "vichidden"></input>
+		</div>
+		<div id = "invisiable">
+			<div id = "dialoglink" class = "dialog">
+				<table>
+					<tr><td>Text :</td><td><input id = "linktext" type = "text"></td></tr>
+					<tr><td>Url :</td><td><input id = "linkurl" type = "text"></td><td><button id = "linkbtn">Apply</button></td></tr>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>
