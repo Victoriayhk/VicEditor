@@ -2,8 +2,8 @@
 .top_menu {
 	height: 2.75em;
 	margin-left: 0;
-	font: 1em helvetica, arial, sans-serif;
-	padding-left: 1em;
+	font: 12pt helvetica, arial, sans-serif;
+	padding-left: 0.2em;
 	vertical-align: center;
 	background-color: #1C86EE;
 }
@@ -12,18 +12,19 @@
 	list-style-type: none;
 	position: relative;
 }
-.top_menu a {
+.top_menu span {
 	color: #FFF;
 	text-decoration: none;
 	padding: 0.8em 1em;
 	background-color: #1C86EE;
 	display: block;
 }
-.top_menu ul a {
-	padding: 0.6em 1em;
+.top_menu ul ul span {
+	padding: 0.5em 1em;
 }
-.top_menu a:hover {
+.top_menu span:hover {
 	background-color: #CCC;
+	cursor: hand;
 }
 
 .top_menu li li {
@@ -37,11 +38,11 @@
 	border-right: solid 1px #CCC;
 	border-bottom: solid 1px #CCC;
 }
-.top_menu li li a {
+.top_menu li li span {
 	background-color: #FFF;
 	color: #888;
 }
-.top_menu li li a:hover {
+.top_menu li li span:hover {
 	background-color: #EEE;
 	color: #000;
 	font-weight: bold;
@@ -99,5 +100,20 @@
 	cursor: hand;
 }
 .quick_menu .fa-toggle-off:hover {
-	border: 0;
+	border: solid 1px transparent;
+}
+
+.quick_menu select {
+	font-size: 0.9em;
+	background-color: #EEE;
+	padding-top: 0.2em;
+	color: #666;
+}
+
+
+/* fold menubar */
+.fold {
+	position: relative;
+	left: 100%;
+	top: 100%;
 }

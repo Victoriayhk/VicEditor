@@ -1,12 +1,8 @@
 .dialog {
 	display: none;
-	position: absolute;
-	left: 0;
-	top: 100%;
-	margin: auto;
-	padding: 8pt;
-	width: auto;
-	height: auto;
+	position: fixed;
+	left: 20%;
+	top: 8em;
 	background-color: #FFF;
 	text-align: center;
 	font: 10pt Verdana;
@@ -17,10 +13,8 @@
 	z-index: 100000;
 }
 
-.dialog input[type=text] {
-	height: 2em;
-	width: 200pt;
-	border: solid 1px #CCC;
+.dialog * {
+	margin: 0 0.5em;
 }
 
 .dialog button {
@@ -39,10 +33,38 @@
 	background-color: #87CEFA;
 }
 
-.dialog tr {
-	line-height: 2em;
+.dialog textarea {
+	font: 10pt monospace;
+	width: 60em;
+	height: 15em;
+}
+
+.dialog .north {
+	margin-top: 5pt;
+	margin-bottom: 5pt;
+	width: 100%;
+}
+
+.dialog .south {
+	margin: 5pt 0 5pt auto;
+	text-align: right;
+}
+
+.dialog .close {
+	position: absolute;
+	right: 5pt;
+	cursor: hand;
+}
+
+.dialog table {
+	line-height: 1.6em;
 }
 
 .dialog td:first-child {
 	text-align: right;
+}
+
+.dialog input[type=text] {
+	height: 1.7em;
+	border: solid 1px #CCC;
 }

@@ -17,101 +17,110 @@
 	</head>
 	<body onload = "prettyPrint()">
 		<div id = "menu">
-			<ul class = "top_menu">
-				<li>
-					<a>File</a>
-					<ul>
-						<li><a>Import Markdown File...</a></li>
-						<li><a>Export</a></li>
-					</ul>
-				</li>
-				<li>
-					<a>Edit</a>
-					<ul>
-						<li><a title = "undo">Undo</a></li>
-						<li><a title = "redo">Redo</a></li>
-						<hr />
-						<li><a title = "paste">Paste</a></li>
-						<li><a title = "selectall">Select All</a></li>
-						<li><a>Find and Replace...</a></li>
-					</ul>
-				</li>
-				<li>
-					<a>Insert</a>
-					<ul>
-						<li><a>Image...</a></li>
-						<li><a title = "link">Link...</a></li>
-						<li><a>Equation...</a></li>
-						<li><a>Drawing...</a></li>
-						<li><a>Table...</a></li>
-						<li><a>Footnote...</a></li>
-						<li><a>Special Characters...</a></li>
-						<li><a>Horizontal Line...</a></li>
-					</ul>
-				</li>
-				<li>
-					<a>Format</a>
-					<ul>
-						<li><a title = "bold">Bold</a></li>
-						<li><a title = "italic">Italic</a></li>
-						<li><a title = "underline">Underline</a></li>
-						<li><a title = "strikethrough">Strikethrough</a></li>
-						<li><a title = "superscript">Supperscript</a></li>
-						<li><a title = "subscript">Subscript</a></li>
-						<hr />
-						<li>
-							<a>Paragraph Styles</a>
-							<ul>
-								<li><a title = "normaltext">Normal Text</a></li>
-								<li><a title = "h1">H1</a></li>
-								<li><a title = "h2">H2</a></li>
-								<li><a title = "h3">H3</a></li>
-								<li><a title = "h4">H4</a></li>
-								<li><a title = "h5">H5</a></li>
-								<li><a title = "h6">H6</a></li>
-							</ul>
-						</li>
-						<li>
-							<a>Align</a>
-							<ul>
-								<li><a title = "justifyleft">Left</a></li>
-								<li><a title = "justifyright">Right</a></li>								
-								<li><a title = "justifycenter">Center</a></li>
-								<li><a title = "justifyfull">Justify</a></li>
-							</ul>
-						</li>
-						<li>
-							<a>Lists</a>
-							<ul>
-								<li><a title = "insertorderedList">OrderedList</a></li>
-								<li><a title = "insertunorderedList">UnorderedList</a></li>
-							</ul>
-						</li>
-						<hr />
-						<li><a title = "removeformat">Clear Farmatting</a></li>
-					</ul>
-				</li>
-				<li>
-					<a>Tools</a>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-				</li>
-				<li>
-					<a>Table</a>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-				</li>
-			</ul>
+			<div class = "top_menu">
+				<ul>
+					<li>
+						<span>File</span>
+						<ul>
+							<li><span>Import Markdown File...</span></li>
+							<li><span>Export</span></li>
+						</ul>
+					</li>
+					<li>
+						<span>Edit</span>
+						<ul>
+							<li><span title = "undo">Undo</span></li>
+							<li><span title = "redo">Redo</span></li>
+							<hr />
+							<li><span title = "copy">Copy</span></li>
+							<li><span title = "cut">Cut</span></li>
+							<li><span title = "delete">Delete</span></li>
+							<li><span title = "paste">Paste</span></li>
+							<li><span title = "selectall">Select All</span></li>
+							<hr />
+							<li><span>Find and Replace...</span></li>
+						</ul>
+					</li>
+					<li>
+						<span>Insert</span>
+						<ul>
+							<li><span title = "insertimage">Image...</span></li>
+							<li><span title = "createlink">Link...</span></li>
+							<li><span>Equation...</span></li>
+							<li><span>Drawing...</span></li>
+							<li><span>Table...</span></li>
+							<li><span>Footnote...</span></li>
+							<li><span>Special Characters...</span></li>
+							<li><span title = "inserthorizontalrule">Horizontal Line...</span></li>
+						</ul>
+					</li>
+					<li>
+						<span>Format</span>
+						<ul>
+							<li><span title = "bold">Bold</span></li>
+							<li><span title = "italic">Italic</span></li>
+							<li><span title = "underline">Underline</span></li>
+							<li><span title = "strikethrough">Strikethrough</span></li>
+							<li><span title = "superscript">Supperscript</span></li>
+							<li><span title = "subscript">Subscript</span></li>
+							<hr />
+							<li>
+								<span>Paragraph Styles</span>
+								<ul>
+									<li><span title = "normaltext">Normal Text</span></li>
+									<li><span title = "h1">H1</span></li>
+									<li><span title = "h2">H2</span></li>
+									<li><span title = "h3">H3</span></li>
+									<li><span title = "h4">H4</span></li>
+									<li><span title = "h5">H5</span></li>
+									<li><span title = "h6">H6</span></li>
+									<hr />
+									<li><span title = "quoteblock">Quoteblock</span></li>
+									<li><span title = "code">Code</span></li>
+								</ul>
+							</li>
+							<li>
+								<span>Align</span>
+								<ul>
+									<li><span title = "justifyleft">Left</span></li>
+									<li><span title = "justifyright">Right</span></li>								
+									<li><span title = "justifycenter">Center</span></li>
+									<li><span title = "justifyfull">Justify</span></li>
+								</ul>
+							</li>
+							<li>
+								<span>Lists</span>
+								<ul>
+									<li><span title = "insertorderedList">OrderedList</span></li>
+									<li><span title = "insertunorderedList">UnorderedList</span></li>
+								</ul>
+							</li>
+							<hr />
+							<li><span title = "removeformat">Clear Farmatting</span></li>
+						</ul>
+					</li>
+					<li>
+						<span>Tools</span>
+						<ul>
+							<li><span href=""></span></li>
+							<li><span href=""></span></li>
+						</ul>
+					</li>
+					<li>
+						<span>Table</span>
+						<ul>
+							<li><span href=""></span></li>
+							<li><span href=""></span></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 			<div class = "quick_menu">
 				<div class = "box">
 					<span class = "fa fa-save" title = ""></span>
 					<span class = "fa fa-print" title = ""></span>
-					<span class = "fa fa-undo" title = ""></span>
-					<span class = "fa fa-repeat" title = ""></span>
+					<span class = "fa fa-undo" title = "undo"></span>
+					<span class = "fa fa-repeat" title = "redo"></span>
 				</div>
 				<div class = "box">
 					<span class = "fa fa-bold" title = "bold"></span>
@@ -127,34 +136,56 @@
 					<span class = "fa fa-align-justify" title = "justifyfull"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-list-ol" title = "insertorderedList"></span>
-					<span class = "fa fa-list-ul" title = "insertunorderedList"></span>
+					<span class = "fa fa-list-ol" title = "insertorderedlist"></span>
+					<span class = "fa fa-list-ul" title = "insertunorderedlist"></span>
 					<span class = "fa fa-indent" title = "indent"></span>
 					<span class = "fa fa-outdent" title = "outdent"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-chain" title = ""></span>
+					<span class = "fa fa-chain" title = "createlink"></span>
 					<span class = "fa fa-chain-broken" title = ""></span>
+					<span class = "fa fa-puzzle-piece" title = "insertmarkdown"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-eraser" title = ""></span>
+					<span class = "fa fa-quote-left" title = "blockquote"></span>
+					<span class = "fa fa-code" title = "code"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-thumb-tack" title = "insert markdown text"></span>
-					<span class = "fa fa-toggle-off" title = "mardownon"></span>
+					<span class = "fa fa-eraser" title = "removeformat"></span>
+				</div>
+				<div class = "box">
+					<select id = "cssstyle">
+						<option id = "browserdefault" selected = "selected" >Browser Default</option>
+						<option id = "markdown.css">Markdown Css</option>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div id = "editarea">
 			<input type = "hidden" id = "vichidden"></input>
 		</div>
-		<div id = "invisiable">
-			<div id = "dialoglink" class = "dialog">
-				<table>
-					<tr><td>Text :</td><td><input id = "linktext" type = "text"></td></tr>
-					<tr><td>Url :</td><td><input id = "linkurl" type = "text"></td><td><button id = "linkbtn">Apply</button></td></tr>
-				</table>
+		<div id = "dialogmarkdown" class = "dialog">
+			<div class = "north">
+				<span class = "label">Insert Markdown</span>
+				<span class = "close fa fa-close"></span>
 			</div>
+			<textarea id = "dialogmkinput"></textarea>
+			<div class = "south">
+				<span style = "color:red">markdown转换器使用的是showdowm(github.com/showdownjs/showdown), 暂时有些bug.</span>
+				<button class = "reset">Reset</button>
+				<button class = "apply">Apply</button>
+			</div>
+		</div>
+		<div id = "dialoglink" class = "dialog">
+			<div class = "north">
+				<span class = "label">Create Hyperlink</span>
+				<span class = "close fa fa-close"></span>
+			</div>
+			<table>
+				<tr><td>Text: </td><td><input id = "dialoglktext" type = "text"></td></tr>
+				<tr><td>Url: </td><td><input id = "dialoglkurl"type = "text"></td><td><button class = "apply">Apply</button></td></tr>
+			</table>
+			<div class = "south"></div>
 		</div>
 	</body>
 </html>
