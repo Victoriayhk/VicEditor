@@ -20,6 +20,11 @@
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 */
 
+function urlValid(url) {
+	var re = /^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-‌​\.\?\,\'\/\\\+&amp;%\$#_]*)?$/;
+	return re.exec(url);
+}
+
 function EditPage(pid) {
 	// create a new page and insert into document
 	var iframe          = document.createElement('iframe');
@@ -68,6 +73,7 @@ function onClickMapTo(where) {
 	var commands = ['undo', 'redo', 'copy', 'cut', 'paste', 'delete', 'selectall',
 		'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript',
 		'justifyleft', 'justifyright', 'justifycenter', 'justifyfull',
+		'unlink',
 		'insertimage', 'inserthorizontalrule',
 		'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'removeformat'];
 	for (var i = 0; i < commands.length; i ++) {
@@ -93,23 +99,35 @@ function onClickMapTo(where) {
 	// 		where.focus();
 	// 	}
 	// });
-	doc.onselectionchange = function(e) {
-		var range = where.getSelection().getRangeAt(0);
-		var dummy = document.createElement("span");
-		range.insertNode(dummy);
-		var box = document.getBoxObjectFor(dummy);
-		var X = box, Y = box.y;
-		dummy.parentNode.removeChild(dummy);
-		$("#dialoglink").data('X', X);
-		$("#dialoglink").data('Y', Y);
-	}
 	$("[title = createlink]").click(function (e) {
-		var X = $("#dialoglink").data('X');
-		var Y = $("#dialoglink").data('Y');
+		var X = e.clientX;
+		var Y = e.clientY;
 		$("#dialoglink").css('left', X - 0.5 * $("#dialoglink").width());
 		$("#dialoglink").css('top', Y * 1.4);
 		$("#dialoglink").toggle(200);
+		$('#dialoglktext').val(doc.getSelection());
+		$('#dialoglkurl').val("");
+		$('#dialoglink .apply').attr('disabled', true);
 	});
+	$('#dialoglink .apply').click(function() {
+		var text = $('#dialoglktext').val();
+		var href  = $('#dialoglkurl').val();
+		doc.execCommand("insertHTML", false ,"<a href='" + href + "'>" + text +"</a>");
+		$("#dialoglink").hide(200);
+		where.focus();
+	});
+	$("#dialoglink .close").click(function() {
+		$("#dialoglink").hide(200);
+	});
+	$('#dialoglktext, #dialoglkurl').on('change keydown paste input', function(e) {
+		var text = $('#dialoglktext').val();
+		var url = $('#dialoglkurl').val();
+		if (text == "" || url == "" || !urlValid(url)) {
+			$('#dialoglink .apply').attr('disabled', true);
+		} else {
+			$('#dialoglink .apply').attr('disabled', false);
+		}
+	})
 	
 
 

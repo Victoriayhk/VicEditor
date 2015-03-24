@@ -1,3 +1,10 @@
+#menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
 /* top dropdown menubar*/
 .top_menu {
 	height: 2.75em;
