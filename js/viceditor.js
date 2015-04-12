@@ -20,16 +20,25 @@
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 */
 
-function urlValid(url) {
-	var re = /^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-‌​\.\?\,\'\/\\\+&amp;%\$#_]*)?$/;
-	return re.exec(url);
+function checkOverflow(el)
+{
+	var curOverflow = el.style.overflow;
+	if ( !curOverflow || curOverflow === "visible" )
+	el.style.overflow = "hidden";
+
+	var isOverflowing = el.clientWidth < el.scrollWidth 
+		|| el.clientHeight < el.scrollHeight;
+
+	el.style.overflow = curOverflow;
+
+	return isOverflowing;
 }
 
 function EditPage(pid) {
 	// create a new page and insert into document
 	var iframe          = document.createElement('iframe');
 	iframe.style.cssText = 'width: 159.2mm;\
-	height: 233.6mm;\
+	height: 100%;\
 	display: block;\
 	margin: 10pt auto 20pt auto;\
 	padding: 31.7mm 25.4mm;\
@@ -48,79 +57,56 @@ function EditPage(pid) {
 	doc.close();
 
 	return iframe;
+} // iframe returned, NOT document
+
+function urlValid(url) {
+	var r1 = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+	var r2 = /^(?:[\w]\:|\\)(\\[\S]+)+\.\w{2,6}$/;
+	return r1.exec(url) || r2.exec(url);
 }
 
-function mapClickByTitle(title, where) {
-	var doc = where.contentDocument || where.contentWindow.document;
-	var key = "[title='" + title + "']";
-	if (title[0] == 'h') {
-		$(key).click(function() { 
+function mapClickByTitle(to, title, varg) {
+	var doc = to.contentDocument || to.contentWindow.document;
+	var key = "[title = " + title + "]";
+	$(key).click(function() {
+		if (varg) {
+			if (!doc.execCommand(title, false, varg))
+				doc.execCommand('insertHTML', false, '<' + title + '>' + varg + '</' + title + '>');
+		} else if (!doc.execCommand(title, false, null))
 			doc.execCommand('formatblock', false, '<' + title + '>');
-			where.focus();
-		});
-	} else {
-		$(key).click(function(){
-		   doc.execCommand(title, false, null);
-		   where.focus();
-		});
-	}
+		to.focus();
+	});
 }
 
-function onClickMapTo(where) {
-	var doc = where.contentDocument || where.contentWindow.document;
-
-	// non-argument commands
-	var commands = ['undo', 'redo', 'copy', 'cut', 'paste', 'delete', 'selectall',
-		'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript',
-		'justifyleft', 'justifyright', 'justifycenter', 'justifyfull',
-		'unlink',
-		'insertimage', 'inserthorizontalrule',
-		'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'removeformat'];
-	for (var i = 0; i < commands.length; i ++) {
-		mapClickByTitle(commands[i], where);
-	};
-
-	// h1, h2, h3, h4, h5, h6
-	for (var i = 1; i <= 6; i++) {
-		mapClickByTitle('h' + i, where);
-	}
-
-	// quoteblock
-	$("[title = blockquote]").click(function() {
-		doc.execCommand('formatblock', false, '<blockquote>');
-		where.focus();
-	});
-
-	// insert link
-	// $("[title = createlink]").click(function () {
-	// 	var url = prompt('Link url:', 'http://');
-	// 	if (url) {
-	// 		doc.execCommand('createlink', false, url);
-	// 		where.focus();
-	// 	}
-	// });
+function mapCreateLink(to) {
+	var doc = to.contentDocument || to.contentWindow.document;
+	
 	$("[title = createlink]").click(function (e) {
 		var X = e.clientX;
 		var Y = e.clientY;
 		$("#dialoglink").css('left', X - 0.5 * $("#dialoglink").width());
 		$("#dialoglink").css('top', Y * 1.4);
 		$("#dialoglink").toggle(200);
-		$('#dialoglktext').val(doc.getSelection());
-		$('#dialoglkurl').val("");
+		$("#dialoglktext").val(doc.getSelection());
+		$('#dialoglkurl').val("http://");
 		$('#dialoglink .apply').attr('disabled', true);
 	});
+
 	$('#dialoglink .apply').click(function() {
-		var text = $('#dialoglktext').val();
+		var text = $("#dialoglktext").val();
 		var href  = $('#dialoglkurl').val();
 		doc.execCommand("insertHTML", false ,"<a href='" + href + "'>" + text +"</a>");
 		$("#dialoglink").hide(200);
-		where.focus();
+		to.focus();
 	});
-	$("#dialoglink .close").click(function() {
+
+	$('#dialoglink .close').click(function() {
 		$("#dialoglink").hide(200);
+		to.focus();
 	});
+	
 	$('#dialoglktext, #dialoglkurl').on('change keydown paste input', function(e) {
-		var text = $('#dialoglktext').val();
+		var text = $("#dialoglktext").val();
 		var url = $('#dialoglkurl').val();
 		if (text == "" || url == "" || !urlValid(url)) {
 			$('#dialoglink .apply').attr('disabled', true);
@@ -128,19 +114,61 @@ function onClickMapTo(where) {
 			$('#dialoglink .apply').attr('disabled', false);
 		}
 	})
+}
+
+function mapInsertImage(to) {
+	var doc = to.contentDocument || to.contentWindow.document;
 	
+	$("[title = insertimage]").click(function (e) {
+		var X = e.clientX;
+		var Y = e.clientY;
+		$("#dialogimage").css('left', X - 0.5 * $("#dialogimage").width());
+		$("#dialogimage").css('top', Y * 1.4);
+		$("#dialogimage").toggle(200);
+		$('#dialogimgurl').val("");
+		$('#dialogimgshow').attr('src', '');
+		$('#dialogimage .apply').attr('disabled', true);
+	});
 
+	$('#dialogimage .apply').click(function() {
+		var href  = $('#dialogimgurl').val();
+		doc.execCommand("insertImage", false, href);
+		$("#dialogimage").hide(200);
+		to.focus();
+	});
 
-	// insert image
-	$("[title = isnertimage]").click(function () {
-		var url = prompt('Image url:', 'http://');
-		if (url) {
-			doc.execCommand('insertimage', false, url);
-			where.focus();
+	$('#dialogimage .close').click(function() {
+		$("#dialogimage").hide(200);
+		to.focus();
+	});
+	
+	$('#dialogimgurl').on('change keydown paste input', function(e) {
+		var url = $('#dialogimgurl').val();
+		if (!urlValid(url)) {
+			$('#dialogimgshow').attr('src', '');
+			$('#dialogimage .apply').attr('disabled', true);
+		} else {
+			$('#dialogimgshow').attr('src', url);
+			$('#dialogimage .apply').attr('disabled', false);
 		}
 	});
 
-	// insert markdown text (converted into HTML)
+	$('#uploadBtn').on('change', function () {
+    	$('#dialogimgurl').val(this.value);
+    	var url = $('#dialogimgurl').val();
+		if (!urlValid(url)) {
+			$('#dialogimgshow').attr('src', '');
+			$('#dialogimage .apply').attr('disabled', true);
+		} else {
+			$('#dialogimgshow').attr('src', url);
+			$('#dialogimage .apply').attr('disabled', false);
+		}
+	});
+}
+
+function mapInsertMarkdown(to) {
+	var doc = to.contentDocument || to.contentWindow.document;
+
 	$("[title = insertmarkdown]").click(function (e) {
 		var X = e.clientX;
 		var Y = e.clientY;
@@ -148,21 +176,38 @@ function onClickMapTo(where) {
 		$("#dialogmarkdown").css('top', Y * 1.4);
 		$("#dialogmarkdown").toggle(200);
 	});
+
 	$("#dialogmarkdown .reset").click(function() {
 		$('#dialogmkinput').val("");
 	});
+
 	$('#dialogmarkdown .apply').click(function() {
 		var converter = new Showdown.converter({ extensions: ['twitter'] });
 		var value = $('#dialogmkinput').val();
 		var html = converter.makeHtml(value);
 		$("#dialogmarkdown").hide(200);
 		doc.execCommand('insertHTML', true, html);
-		where.focus();
+		to.focus();
 	});
+
 	$("#dialogmarkdown .close").click(function() {
 		$("#dialogmarkdown").hide(200);
 	});
+}
 
+function onClickMapTo(to) {
+	// basic commands click map
+	var commands = ['undo', 'redo', 'copy', 'cut', 'paste', 'delete', 'selectall',
+		'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript',
+		'justifyleft', 'justifyright', 'justifycenter', 'justifyfull',
+		'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'code',
+		'unlink', 'inserthorizontalrule',
+		'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'removeformat'];
+	
+	mapCreateLink(to);
+	mapInsertImage(to);
+	mapInsertMarkdown(to);
+	for (var i = 0; i < commands.length; i ++) mapClickByTitle(to, commands[i]);
 }
 
 $(window).load(function (){
@@ -170,4 +215,5 @@ $(window).load(function (){
 	var pagecount = 1;
 	var page = EditPage(0);
 	onClickMapTo(page);
+	// textDetection(page);
 })

@@ -117,10 +117,3 @@
 	color: #666;
 }
 
-
-/* fold menubar */
-.fold {
-	position: relative;
-	left: 100%;
-	top: 100%;
-}

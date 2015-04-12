@@ -4,7 +4,7 @@
 	left: 20%;
 	top: 8em;
 	background-color: #FFF;
-	text-align: center;
+	/*text-align: center;*/
 	font: 10pt Verdana;
 	border: solid 1px #CCC;
 	-webkit-box-shadow: 0pt 0pt 4pt #CCC;\
@@ -13,11 +13,12 @@
 	z-index: 100000;
 }
 
-.dialog * {
+.dialog > * {
 	margin: 0 0.5em;
 }
 
-.dialog button {
+.dialog button, .dialog .button {
+	display: inline-block;
 	font-weight: bold;
 	color: #FFF;
 	background-color: #1C86EE;
@@ -33,7 +34,7 @@
 	background-color: #87CEFA;
 }
 
-.dialog textarea {
+.dialog textarea, .dialog input[type=textarea] {
 	font: 10pt monospace;
 	width: 60em;
 	height: 15em;
@@ -46,7 +47,7 @@
 }
 
 .dialog .south {
-	margin: 5pt 0 5pt auto;
+	margin: 5pt;
 	text-align: right;
 }
 
@@ -57,14 +58,46 @@
 }
 
 .dialog table {
+	color: #888;
+	font-size: 8pt;
 	line-height: 1.6em;
-}
-
-.dialog td:first-child {
-	text-align: right;
+	padding: 0;
+	border: 0;
 }
 
 .dialog input[type=text] {
 	height: 1.7em;
+	width: 128pt;
 	border: solid 1px #CCC;
+}
+
+.dialog .alignright {
+	text-align: right;
+}
+
+.dialog img {
+	border: 1px solid #CCC;
+	width: 128pt;
+	height: 90pt;
+}
+
+.dialog .fileUpload {
+	position: relative;
+	overflow: hidden;
+}
+
+.dialog .fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+#dialogimgw, #dialogimgh {
+	width: 6em;
 }

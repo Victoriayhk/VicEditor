@@ -12,7 +12,7 @@
 		<script type = "text/javascript" src = "extensions/showdown/extensions/twitter.js"></script>
 		<script type = "text/javascript" src = "extensions/google-code-prettify/prettify.js"></script>
 		<script type = "text/javascript" src = "js/jquery-2.1.3.min.js"></script>
-		<script type = "text/javascript" src = "js/page.js"></script>
+		<script type = "text/javascript" src = "js/dialog.js"></script>
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
 	<body onload = "prettyPrint()">
@@ -144,6 +144,7 @@
 				<div class = "box">
 					<span class = "fa fa-chain" title = "createlink"></span>
 					<span class = "fa fa-chain-broken" title = "unlink"></span>
+					<span class = "fa fa-photo" title = "insertimage"></span>
 					<span class = "fa fa-puzzle-piece" title = "insertmarkdown"></span>
 				</div>
 				<div class = "box">
@@ -161,15 +162,13 @@
 				</div>
 			</div>
 		</div>
-		<div id = "editarea">
-			<input type = "hidden" id = "vichidden"></input>
-		</div>
+		<div id = "editarea"><input type = "hidden" id = "vichidden"></input></div>
 		<div id = "dialogmarkdown" class = "dialog">
 			<div class = "north">
 				<span class = "label">Insert Markdown</span>
 				<span class = "close fa fa-close"></span>
 			</div>
-			<textarea id = "dialogmkinput"></textarea>
+			<textarea id = "dialogmkinput" plcaholder = "Type Markdown-syntax text"></textarea>
 			<div class = "south">
 				<span style = "color:red">markdown转换器使用的是showdowm(github.com/showdownjs/showdown), 暂时有些bug.</span>
 				<button class = "reset">Reset</button>
@@ -183,9 +182,40 @@
 			</div>
 			<table>
 				<tr><td>Text: </td><td><input id = "dialoglktext" type = "text"></td></tr>
-				<tr><td>Url: </td><td><input id = "dialoglkurl"type = "text"></td><td><button class = "apply">Apply</button></td></tr>
+				<tr><td>Url: </td><td><input id = "dialoglkurl" type = "text"></td><td><button class = "apply">Apply</button></td></tr>
 			</table>
 			<div class = "south"></div>
+		</div>
+		<div id = "dialogimage" class = "dialog">
+			<div class = "north">
+				<span class = "label">Insert Image</span>
+				<span class = "close fa fa-close"></span>
+			</div>
+			<table>
+				<tr>
+					<td><input id="dialogimgurl" placeholder="File path or URL" type = "text" /></td>
+					<td>
+						<div class="fileUpload btn btn-primary">
+						    <button>Browse...</button>
+						    <input id="uploadBtn" type="file" class="upload" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan = "4"><img id = "dialogimgshow" alt = "image preview"></img></td>
+					<td>&nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td>resize in</td>
+				</tr>
+				<tr>
+					<td><input id="dialogimgw" placeholder="width (px)" type = "text" /></td>
+				</tr>
+				<tr>
+					<td><input id="dialogimgh" placeholder="height (px)" type = "text" /></td>
+				</tr>
+			</table>
+			<div class = "south"><button class = "apply">Apply</button></div>
 		</div>
 	</body>
 </html>
