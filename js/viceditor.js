@@ -195,6 +195,60 @@ function mapInsertMarkdown(to) {
 	});
 }
 
+function insertTable(to, row, col) {
+	var doc = to.contentDocument || to.contentWindow.document;
+	var table = doc.createElement('table');
+
+	for (var i = 0; i < row; i++) {
+		var tr = document.createElement('tr');
+		for (var j = 0; j < col; j++) {
+			var td = doc.createElement('td');
+			tr.appendChild(td);
+		}
+		table.appendChild(tr);
+	}
+	doc.body.appendChild(table);
+}
+
+function mapInsertTable(to) {
+	var max_row = 20;
+	var max_col = 20;
+	
+	$('.ttd').hover(function() {
+		var row = $(this).parent().parent().children().index($(this).parent());
+		var col = $(this).parent().children().index($(this));
+
+		for (var i = 0; i <= row; i++) {
+			for (var j = 0; j <= col; j++) {
+				$('table tr').eq(i).find('td').eq(j).css('background-color', '#7EC0EE');
+				$('table tr').eq(i).find('td').eq(j).css('border-color', '#4876FF');
+			}
+		}
+		for (var i = 0; i <= row; i++) {
+			for (var j = col + 1; j < max_col; j++) {
+				$('table tr').eq(i).find('td').eq(j).css('background-color', '#F2F2F2');
+				$('table tr').eq(i).find('td').eq(j).css('border-color', '#CFCFCF');
+			}
+		}
+		for (var i = row + 1; i < max_row; i++) {
+			for (var j = 0; j < max_col; j++) {
+				$('table tr').eq(i).find('td').eq(j).css('background-color', '#F2F2F2');
+				$('table tr').eq(i).find('td').eq(j).css('border-color', '#CFCFCF');
+			}
+		}
+
+		$('#tablewidth').text(row + 1);
+		$('#tableheight').text(col + 1);
+	});
+
+	$('.ttd').click(function() {
+		var row = $(this).parent().parent().children().index($(this).parent());
+		var col = $(this).parent().children().index($(this));
+
+		insertTable(to, row + 1, col + 1);
+	});
+}
+
 function onClickMapTo(to) {
 	// basic commands click map
 	var commands = ['undo', 'redo', 'copy', 'cut', 'paste', 'delete', 'selectall',
@@ -207,6 +261,7 @@ function onClickMapTo(to) {
 	mapCreateLink(to);
 	mapInsertImage(to);
 	mapInsertMarkdown(to);
+	mapInsertTable(to);
 	for (var i = 0; i < commands.length; i ++) mapClickByTitle(to, commands[i]);
 }
 
