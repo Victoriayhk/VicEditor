@@ -73,3 +73,27 @@ keyCodeToKeyName = {
 	// Firefox and Opera return 59,61
 	188: ',', 190: '.', 191: '/', 192: '`', 219: '[', 220: '\\', 221: ']', 222: '\''
 };
+
+
+/**************************************************************************************
+快捷键定制, 要求:
+1. RTE的编辑区(ifamge)对象page(全局变量)
+2. RTE的编辑区(ifamge)对象page内的document对象, 写作doc(全局变量)
+3. 鉴于4和5, 本脚本设计用来被viceditor.js调用的(或一起使用)
+
+PS: 本本脚本此说明上方的代码来自: JavaScript.The Definitive Guide(David Flanagan)中的Example 17-8
+
+作者: 易惠康
+***************************************************************************************/
+
+
+doc.onkeydown = function(e) {
+	key = key_dispatch(e);
+	$.getJSON(STATIC_URL + "json/hotkeys.json", function(hotkeys) {
+		$.each(hotkeys, function(command, ekey) {
+			if (key == key_normalize(ekey)) {
+				execCommand(command);
+			}
+		});
+	});
+}
