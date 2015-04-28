@@ -32,7 +32,7 @@ function loadScript(url, callback) {
 }
 
 function loadCSS(url, callback) {
-	// 加载对应url的CSS样式表给当前document(注意不是给编辑页的doc)
+	// 加载对应url的CSS样式表给d(document对象), 默认为document
 	// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
     // Adding the script tag to the head as suggested before
     var head = document.getElementsByTagName('head')[0];
@@ -116,7 +116,7 @@ function EditPage() {
 	var doc = iframe.contentDocument || iframe.contentWindow.document;
 	doc.designMode = 'on';
 	doc.open();
-	doc.write('<html><head><meta charset = "utf-8"></head><body></body></html>');
+	doc.write('<html><head><meta charset = "utf-8"><link rel="stylesheet" type="text/css" href="../../../../static/css/page.css"></head><body></body></html>');
 	doc.close();
 
 	return iframe;
@@ -135,27 +135,21 @@ function execCommand(command, argv) {
 
 
 $(window).ready(function (){
-	// CSS
+	// 样式表
 	loadCSS(STATIC_URL + "extensions/fontawesome/css/font-awesome.min.css");
 	if (get_browser_info().name == 'IE') {
 		loadCSS(STATIC_URL + "extensions/fontawesome/css/font-awesome-ie7.min.css");
 	}
 	loadCSS(STATIC_URL + 'css/viceditor.css');
 
-	// basic scripts
+	// 加载脚本
 	loadScript(STATIC_URL + 'js/menu.js');
 	loadScript(STATIC_URL + 'js/dialog.js');
 	loadScript(STATIC_URL + 'js/hotkeys.js');
 	loadScript(STATIC_URL + 'js/table.js');
 
-
-	// pages
+	// 编辑页
 	page = EditPage();
 	doc = page.contentDocument || page.contentWindow.document;
 	page.focus();
-
-	// map commands to clicks or hotkeys
-	// onClickMapTo();
-	// onHotkeyMapTo();
-
 })

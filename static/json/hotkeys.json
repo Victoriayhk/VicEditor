@@ -1,4 +1,9 @@
 {
+	"undo": "ctrl_z",
+	"redo": "ctrl_y",
+	"bold": "ctrl_b",
+	"italic": "ctrl_i",
+	"underline": "ctrl_u",
 	"h1": "ctrl_shift_1",
 	"h2": "ctrl_shift_2",
 	"h3": "ctrl_shift_3",
