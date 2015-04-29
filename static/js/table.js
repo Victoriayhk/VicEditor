@@ -53,7 +53,6 @@ $('.ttd').click(function(){
 
 
 function insertTable(r, c) {
-	console.log(r, c);
 	var html = '<table>';
 	for (var i = 0; i < r; i++) {
 		html += '<tr style="height:2em">';

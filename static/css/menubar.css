@@ -143,9 +143,16 @@
 }
 
 .quick_menu select {
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	padding-bottom: 0.1em;
 	font-size: 0.9em;
 	background-color: #EEE;
 	padding-top: 0.2em;
 	color: #666;
+	border: 1px solid transparent;
 }
 
+.quick_menu option {
+	border: 1px solid #CCC;
+}

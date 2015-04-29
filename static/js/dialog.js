@@ -58,8 +58,8 @@ var DIALOG_COMMANDS = ['markdown', 'link', 'image'];
 function dialogToggle(dname, X, Y, init_argvs) {
 	// 在X,Y处的正下方弹出对应对话框, 并预设对话框中的一些内容
 	var dialog = $("#d" + dname);
-	$(dialog).css('left', X - 0.5 * $(dialog).width());
-	$(dialog).css('top', Y * 1.4);
+	$(dialog).css('left', X - 40);
+	$(dialog).css('top', Y + 20);
 	$(dialog).toggle(200);
 
 	if (init_argvs) {
