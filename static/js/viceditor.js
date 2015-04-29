@@ -116,7 +116,7 @@ function EditPage() {
 	var doc = iframe.contentDocument || iframe.contentWindow.document;
 	doc.designMode = 'on';
 	doc.open();
-	doc.write('<html><head><meta charset = "utf-8"><link rel="stylesheet" type="text/css" href="../../../../static/css/page.css"></head><body></body></html>');
+	doc.write('<html><head><meta charset = "utf-8"><link rel="stylesheet" type="text/css" href="../../../../static/css/page.css" media = "all"></head><body></body></html>');
 	doc.close();
 
 	return iframe;
@@ -147,6 +147,7 @@ $(window).ready(function (){
 	loadScript(STATIC_URL + 'js/dialog.js');
 	loadScript(STATIC_URL + 'js/hotkeys.js');
 	loadScript(STATIC_URL + 'js/table.js');
+	loadScript(STATIC_URL + 'js/file.js');
 
 	// 编辑页
 	page = EditPage();

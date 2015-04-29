@@ -147,8 +147,8 @@ $('#dialogimgurl,#uploadBtn').on('change keydown paste input', function(e) {
 /****插入markdown****/
 
 // markdown转html的插件: showdown
-loadScript(STATIC_URL + 'extensions/showdown/showdown.js');
-loadScript(STATIC_URL + 'extensions/showdown/extensions/twitter.js');
+loadScript(STATIC_URL + 'extensions/showdown/showdown.min.js');
+loadScript(STATIC_URL + 'extensions/showdown/extensions/twitter.min.js');
 
 
 $("#dmarkdown .reset").click(function() {
