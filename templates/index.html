@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>My Word</title>
+		<title>Daft Word</title>
 		<meta charset = "utf-8">
 		<link href="../../../../static/word.ico" rel="shortcut icon">
 		<script type = "text/javascript" src = "../../../../../static/js/viceditor.js"></script>
@@ -171,9 +171,10 @@
 					<span class = "fa fa-eraser" id = "qremoveformat"></span>
 				</div>
 				<div class = "box">
-					<select id = "cssstyle">
-						<option id = "browserdefault" selected = "selected" >Browser Default</option>
-						<option id = "markdown.css">Markdown Css</option>
+					<select id = "cssstyle" title = "css style">
+						<option value = "github">github</option>
+						<option value = "twitter">twitter</option>
+						<option value = "markdown">markdown</option>
 					</select>
 				</div>
 			</div>
@@ -228,7 +229,7 @@
 			</div>
 			<table>
 				<tr>
-					<td><input id="dialogimgurl" placeholder="File path or URL" type = "text" /></td>
+					<td><input id="dimgurl" placeholder="File path or URL" type = "text" /></td>
 					<td>
 						<div class="fileUpload btn btn-primary">
 						    <button id = "dibrowse">Browse...</button>
@@ -244,10 +245,10 @@
 					<td>resize in</td>
 				</tr>
 				<tr>
-					<td><input id="dialogimgw" placeholder="width (px)" type = "text" /></td>
+					<td><input id="dimgw" placeholder="width (px)" type = "text" /></td>
 				</tr>
 				<tr>
-					<td><input id="dialogimgh" placeholder="height (px)" type = "text" /></td>
+					<td><input id="dimgh" placeholder="height (px)" type = "text" /></td>
 				</tr>
 			</table>
 			<div class = "south"><button class = "apply">Apply</button></div>

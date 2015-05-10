@@ -123,17 +123,22 @@ $('#uploadBtn').attr('disabled', true);
 
 
 $('#dimage .apply').click(function() {
-	// 点击超链接对话框上的Apply按钮, 插入图片
-	var href  = $('#dialogimgurl').val();
-	doc.execCommand("insertImage", false, href);
+	// 点击超链接对话框上的Apply按钮, 插入图片:
+	// 待处理细节: 当图片过大时, 图片应该缩小显示
+	var href  = $('#dimgurl').val();
+	console.log($('#dimgw').text(), $('#dimgh').text());
+	if ($('#dimgw').val() && $('#dimgh').val()) // 指定宽度和高度
+		execCommand("insertHTML", '<img src="' + href + '" style="width:' + $('#dimgw').val() + 'px;height:' + $('#dimgh').val() + 'px" />');
+	else // 未指定
+		execCommand("insertImage", href);
 	$("#dimage").hide(200);
 	page.focus();
 });
 
 
-$('#dialogimgurl,#uploadBtn').on('change keydown paste input', function(e) {
+$('#dimgurl,#uploadBtn').on('change keydown paste input', function(e) {
 	// 随键盘键入即时检查图片地址的合法性: 仅作与超链接一样的URL正则匹配检查; 不合法时disable Apply按钮
-	var url = $('#dialogimgurl').val();
+	var url = $('#dimgurl').val();
 	if (!urlValid(url)) {
 		$('#dialogimgshow').attr('src', '');
 		$('#dimage .apply').attr('disabled', true);

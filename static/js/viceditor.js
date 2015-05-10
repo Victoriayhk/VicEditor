@@ -13,12 +13,13 @@
 来自网络的非自定义的有用函数, 有来源的, 来源URL注明在函数内
 ***************************************************************************************/
 
-function loadScript(url, callback) {
+function loadScript(url, callback, target) {
 	// 加载对应url的javascript脚本给当前document(注意不是给编辑页的doc)
 	// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
+	if (!target) target = document;
     // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
+    var head = target.getElementsByTagName('head')[0];
+    var script = target.createElement('script');
     script.type = 'text/javascript';
     script.src = url;
 
@@ -31,19 +32,15 @@ function loadScript(url, callback) {
     head.appendChild(script);
 }
 
-function loadCSS(url, callback) {
+function loadCSS(url, target) {
 	// 加载对应url的CSS样式表给d(document对象), 默认为document
 	// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
     // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('link');
+	if (!target) target = document;
+    var head = target.getElementsByTagName('head')[0];
+    var script = target.createElement('link');
     script.rel = 'stylesheet';
     script.href = url;
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = callback;
-    script.onload = callback;
 
     // Fire the loading
     head.appendChild(script);
@@ -77,13 +74,21 @@ function urlValid(url) {
 }
 
 
+function d2tag(tag, attrs, text) {
+	var ret = '<' + tag;
+	for (var attr in attrs) {
+		ret += attr + '"' + attrs + '"';
+	}
+	ret += '>' + text + '</' + tag + '>';
+	return ret;
+}
 
 
 /**************************************************************************************
 全局变量们
 ***************************************************************************************/
 
-var STATIC_URL = '../../../../../../static/'; // django静态文件URL
+var STATIC_URL = 'static/'; // django静态文件URL
 
 var page; // 编辑页(对应html中的iframe元素)
 var doc;  // 编辑页中的document, 用的多, 缩写为doc
@@ -116,7 +121,7 @@ function EditPage() {
 	var doc = iframe.contentDocument || iframe.contentWindow.document;
 	doc.designMode = 'on';
 	doc.open();
-	doc.write('<html><head><meta charset = "utf-8"><link rel="stylesheet" type="text/css" href="../../../../static/css/page.css" media = "all"></head><body></body></html>');
+	doc.write('<html><head><meta charset = "utf-8"></head><body></body></html>');
 	doc.close();
 
 	return iframe;
@@ -125,6 +130,8 @@ function EditPage() {
 
 function execCommand(command, argv) {
 	// 执行一个可doc.execCommand的原子级编辑操作
+	console.log('execCommand:');
+	console.lgo(command, arg)
 	if (argv) {
 		if (!doc.execCommand(command, false, argv))
 			doc.execCommand('insertHTML', false, '<' + command + '>' + argv + '</' + command + '>');
@@ -143,6 +150,7 @@ $(window).ready(function (){
 	loadCSS(STATIC_URL + 'css/viceditor.css');
 
 	// 加载脚本
+	loadScript(STATIC_URL + 'js/style.js');
 	loadScript(STATIC_URL + 'js/menu.js');
 	loadScript(STATIC_URL + 'js/dialog.js');
 	loadScript(STATIC_URL + 'js/hotkeys.js');

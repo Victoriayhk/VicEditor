@@ -53,6 +53,7 @@ $('.ttd').click(function(){
 
 
 function insertTable(r, c) {
+    // 插入r行c列的表格
 	var html = '<table>';
 	for (var i = 0; i < r; i++) {
 		html += '<tr style="height:2em">';
@@ -62,6 +63,5 @@ function insertTable(r, c) {
 		html += '</tr>';
 	}
 	html += '</table>';
-	console.log(html);
 	execCommand('insertHTML', html);
 }

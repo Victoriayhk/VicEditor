@@ -14,13 +14,13 @@ hr {
 	border-bottom: solid 1px #CCC;
 }
 #editarea {
-	margin-top: 6em;
+	margin-top: 5em;
 	display: block;
 	width: 100%;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	top: 2.75em;
+	/*top: 2.75em;*/
 	background-color: #EEE;
 	overflow-y: auto;
 }

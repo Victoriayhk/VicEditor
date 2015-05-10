@@ -1,20 +1,25 @@
+// 插件 jsPDF
 loadScript(STATIC_URL + 'extensions/jsPDF/jsPDF.min.js');
 
+
 $('#savepdf').click(function () {
+    // 保存为PDF格式, 目前不支持utf-8, 效果有待完善
     var pdf = new jsPDF();
     var specialElementHandlers = {
         '#editor': function(element, renderer){
             return true;
         }
     };
-    pdf.fromHTML(doc.body.innerHTML, 15, 15, {
+    pdf.fromHTML(doc.body.innerHTML, 20, 30, {
         'width': 170, 
         'elementHandlers': specialElementHandlers
     });
     pdf.save('myword.pdf');
 });
 
+
 $('#qprint').click(function() {
+    // 打印, 调用系统打印工具
     $('#menu').hide();
     $('#page').css({
         "width": "100%",
