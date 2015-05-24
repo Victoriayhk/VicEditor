@@ -1,7 +1,4 @@
-/* source: http://kevinburke.bitbucket.org/markdowncss/ */
-
-/* This is a really long comment at the start of the file to test line
- * wrapping. */
+/* 以下为markdown css*/
 
 body{
     margin: 0 auto;
@@ -24,6 +21,8 @@ h1 {
 }
 h2 {
     font-size: 36px;
+    /* The bottom margin is small. It's designed to be used with gray meta text
+     * below a post title. */
     margin: 24px 0 6px;
 }
 h3 {
@@ -41,12 +40,22 @@ a {
     padding: 0;
     vertical-align: baseline;
 }
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
 ul, ol {
     padding: 0;
     margin: 0;
 }
 li {
     line-height: 24px;
+}
+li ul, li ul {
+    margin-left: 24px;
 }
 p, ul, ol {
     font-size: 16px;
@@ -69,10 +78,21 @@ aside {
     width: 390px;
 }
 blockquote {
-    margin: 1em 2em;
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
     max-width: 476px;
 }
-blockquote p {
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
     color: #666;
     max-width: 460px;
 }
@@ -145,8 +165,7 @@ input[type=checkbox], input[type=radio] {
 input[type=text],
 input[type=password],
 textarea,
-select,
-.uneditable-input {
+select {
   display: inline-block;
   width: 210px;
   padding: 4px;
@@ -240,4 +259,10 @@ button:active {
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+
+
+
+td {
+	border: 1px solid;
 }

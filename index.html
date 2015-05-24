@@ -1,42 +1,37 @@
 <html>
 	<head>
-		<title>My Word</title>
+		<title>Daft Word</title>
 		<meta charset = "utf-8">
-		<link rel = "stylesheet" type = "text/css" href = "css/viceditor.css" />
-		<link href="extensions/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
-		<link href="extensions/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<!--[if IE]>
-		<link href="extensions/fontawesome/css/font-awesome-ie7.min.css" rel="stylesheet" />
-		<![endif]-->
-		<script type = "text/javascript" src = "extensions/showdown/showdown.js"></script>
-		<script type = "text/javascript" src = "extensions/showdown/extensions/twitter.js"></script>
-		<script type = "text/javascript" src = "extensions/google-code-prettify/prettify.js"></script>
-		<script type = "text/javascript" src = "js/jquery-2.1.3.min.js"></script>
-		<script type = "text/javascript" src = "js/dialog.js"></script>
+		<link href="word.ico" rel="shortcut icon">
 		<script type = "text/javascript" src = "js/viceditor.js"></script>
 	</head>
-	<body onload = "prettyPrint()">
+	<body>
 		<div id = "menu">
+
+
+
+
 			<div class = "top_menu">
 				<ul>
 					<li>
 						<span>File</span>
 						<ul>
 							<li><span>Import Markdown File...</span></li>
+							<li><span id = "savepdf">Save as PDF</span></li>
 							<li><span>Export</span></li>
 						</ul>
 					</li>
 					<li>
 						<span>Edit</span>
 						<ul>
-							<li><span title = "undo">Undo<p class = "hotkey">Ctrl + Z</p></span></li>
-							<li><span title = "redo">Redo<p class = "hotkey">Ctrl + Y</p></span></li>
+							<li><span id = "tundo">Undo<p class = "hotkey">Ctrl + Z</p></span></li>
+							<li><span id = "tredo">Redo<p class = "hotkey">Ctrl + Y</p></span></li>
 							<hr />
-							<li><span title = "copy"><p class = "fa fa-plus"></p>Copy<p class = "hotkey">Ctrl + C</p></span></li>
-							<li><span title = "cut"><p class = "fa fa-plus"></p>Cut<p class = "hotkey">Ctrl + X</p></span></li>
-							<li><span title = "delete"><p class = "fa fa-plus"></p>Delete<p class = "hotkey">Ctrl + D</p></span></li>
-							<li><span title = "paste"><p class = "fa fa-plus"></p>Paste<p class = "hotkey">Ctrl + P</p></span></li>
-							<li><span title = "selectall"><p class = "fa fa-plus"></p>Select All<p class = "hotkey">Ctrl + A</p></span></li>
+							<li><span id = "tcopy"><p class = "fa fa-plus"></p>Copy<p class = "hotkey">Ctrl + C</p></span></li>
+							<li><span id = "tcut"><p class = "fa fa-plus"></p>Cut<p class = "hotkey">Ctrl + X</p></span></li>
+							<li><span id = "tdelete"><p class = "fa fa-plus"></p>Delete<p class = "hotkey">Ctrl + D</p></span></li>
+							<li><span id = "tpaste"><p class = "fa fa-plus"></p>Paste<p class = "hotkey">Ctrl + P</p></span></li>
+							<li><span id = "tselectall"><p class = "fa fa-plus"></p>Select All<p class = "hotkey">Ctrl + A</p></span></li>
 							<hr />
 							<li><span>Find and Replace<p class = "hotkey">Ctrl + H</p></span></li>
 						</ul>
@@ -44,58 +39,58 @@
 					<li>
 						<span>Insert</span>
 						<ul>
-							<li><span title = "insertimage">Image...<p class = "hotkey">no hotkey</p></span></li>
-							<li><span title = "createlink">Link...<p class = "hotkey">no hotkey</p></span></li>
+							<li><span id = "tinsertimage">Image...<p class = "hotkey">no hotkey</p></span></li>
+							<li><span id = "tcreatelink">Link...<p class = "hotkey">no hotkey</p></span></li>
 							<hr>
 							<li><span>Equation...<p class = "hotkey">no hotkey</p></span></li>
 							<li><span>Drawing...<p class = "hotkey">no hotkey</p></span></li>
 							<li><span>Footnote...<p class = "hotkey">no hotkey</p></span></li>
 							<li><span>Special Characters...<p class = "hotkey">no hotkey</p></span></li>
-							<li><span title = "inserthorizontalrule">Horizontal Line...<p class = "hotkey">no hotkey</p></span></li>
+							<li><span id = "tinserthorizontalrule">Horizontal Line...<p class = "hotkey">no hotkey</p></span></li>
 						</ul>
 					</li>
 					<li>
 						<span>Format</span>
 						<ul>
-							<li><span title = "bold"><p class = "fa fa-bold"></p>Bold<p class = "hotkey">Ctrl + B</p></span></li>
-							<li><span title = "italic"><p class = "fa fa-italic"></p>Italic<p class = "hotkey">Ctrl + I</p></span></li>
-							<li><span title = "underline"><p class = "fa fa-underline"></p>Underline<p class = "hotkey">Ctrl + U</p></span></li>
-							<li><span title = "strikethrough"><p class = "fa fa-strikethrough"></p>Strikethrough</span></li>
-							<li><span title = "superscript"><p class = "fa fa-superscript"></p>Superscript</span></li>
-							<li><span title = "subscript"><p class = "fa fa-subscript"></p>Subscript</span></li>
+							<li><span id = "tbold"><p class = "fa fa-bold"></p>Bold<p class = "hotkey">Ctrl + B</p></span></li>
+							<li><span id = "titalic"><p class = "fa fa-italic"></p>Italic<p class = "hotkey">Ctrl + I</p></span></li>
+							<li><span id = "tunderline"><p class = "fa fa-underline"></p>Underline<p class = "hotkey">Ctrl + U</p></span></li>
+							<li><span id = "tstrikethrough"><p class = "fa fa-strikethrough"></p>Strikethrough</span></li>
+							<li><span id = "tsuperscript"><p class = "fa fa-superscript"></p>Superscript</span></li>
+							<li><span id = "tsubscript"><p class = "fa fa-subscript"></p>Subscript</span></li>
 							<hr />
 							<li>
 								<span><p class = "fa fa-paragraph"></p>Paragraph Styles...<p class = "hotkey fa fa-caret-right"></p></span>
 								<ul>
-									<li><span title = "h1">H1<p class = "hotkey">Shift + Ctrl + 1</p></span></li>
-									<li><span title = "h2">H2<p class = "hotkey">Shift + Ctrl + 2</p></span></li>
-									<li><span title = "h3">H3<p class = "hotkey">Shift + Ctrl + 3</p></span></li>
-									<li><span title = "h4">H4<p class = "hotkey">Shift + Ctrl + 4</p></span></li>
-									<li><span title = "h5">H5<p class = "hotkey">Shift + Ctrl + 5</p></span></li>
-									<li><span title = "h6">H6<p class = "hotkey">Shift + Ctrl + 6</p></span></li>
+									<li><span id = "th1">H1<p class = "hotkey">Shift + Ctrl + 1</p></span></li>
+									<li><span id = "th2">H2<p class = "hotkey">Shift + Ctrl + 2</p></span></li>
+									<li><span id = "th3">H3<p class = "hotkey">Shift + Ctrl + 3</p></span></li>
+									<li><span id = "th4">H4<p class = "hotkey">Shift + Ctrl + 4</p></span></li>
+									<li><span id = "th5">H5<p class = "hotkey">Shift + Ctrl + 5</p></span></li>
+									<li><span id = "th6">H6<p class = "hotkey">Shift + Ctrl + 6</p></span></li>
 									<hr />
-									<li><span title = "quoteblock">Quoteblock</span></li>
-									<li><span title = "code">Code</span></li>
+									<li><span id = "tquoteblock">Quoteblock</span></li>
+									<li><span id = "tcode">Code</span></li>
 								</ul>
 							</li>
 							<li>
 								<span>Align...<p class = "hotkey fa fa-caret-right"></p></span>
 								<ul>
-									<li><span title = "justifyleft">Left</span></li>
-									<li><span title = "justifyright">Right</span></li>								
-									<li><span title = "justifycenter">Center</span></li>
-									<li><span title = "justifyfull">Justify</span></li>
+									<li><span id = "tjustifyleft">Left</span></li>
+									<li><span id = "tjustifyright">Right</span></li>								
+									<li><span id = "tjustifycenter">Center</span></li>
+									<li><span id = "tjustifyfull">Justify</span></li>
 								</ul>
 							</li>
 							<li>
 								<span>Lists...<p class = "hotkey fa fa-caret-right"></p></span>
 								<ul>
-									<li><span title = "insertorderedList">OrderedList</span></li>
-									<li><span title = "insertunorderedList">UnorderedList</span></li>
+									<li><span id = "tinsertorderedList">OrderedList</span></li>
+									<li><span id = "tinsertunorderedList">UnorderedList</span></li>
 								</ul>
 							</li>
 							<hr />
-							<li><span title = "removeformat">Clear Farmatting</span></li>
+							<li><span id = "tremoveformat">Clear Farmatting</span></li>
 						</ul>
 					</li>
 					<li>
@@ -103,12 +98,17 @@
 						<ul>
 							<li>
 								<span><p class = "fa fa-th"></p>Insert Table...<p class = "hotkey fa fa-caret-right"></p></span>
-								<table>
-									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></tr>
-									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></tr>
-									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></tr>
-									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></tr>
-									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></tr>
+								<table id = "ttb">
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
+									<tr><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"></td><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"><td class = "ttd"></tr>
 									<tr><td colspan = "10"><p id = "tablewidth">4</p> &times; <p id = "tableheight">4</p></td></tr>
 								</table>
 							</li>
@@ -126,55 +126,70 @@
 					</li>
 				</ul>
 			</div>
+
+
+
+
+
+
 			<div class = "quick_menu">
 				<div class = "box">
-					<span class = "fa fa-save" title = ""></span>
-					<span class = "fa fa-print" title = ""></span>
-					<span class = "fa fa-undo" title = "undo"></span>
-					<span class = "fa fa-repeat" title = "redo"></span>
+					<span class = "fa fa-save"></span>
+					<span class = "fa fa-print" id = "qprint"></span>
+					<span class = "fa fa-undo" id = "qundo"></span>
+					<span class = "fa fa-repeat" id = "qredo"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-bold" title = "bold"></span>
-					<span class = "fa fa-italic" title = "italic"></span>
-					<span class = "fa fa-underline" title = "underline"></span>
-					<span class = "fa fa-strikethrough" title = "strikethrough"></span>
-					<span class = "fa fa-font" title = "forecolor"></span>
+					<span class = "fa fa-bold" id = "qbold"></span>
+					<span class = "fa fa-italic" id = "qitalic"></span>
+					<span class = "fa fa-underline" id = "qunderline"></span>
+					<span class = "fa fa-strikethrough" id = "qstrikethrough"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-align-left" title = "justifyleft"></span>
-					<span class = "fa fa-align-center" title = "justifycenter"></span>
-					<span class = "fa fa-align-right" title = "justifyright"></span>
-					<span class = "fa fa-align-justify" title = "justifyfull"></span>
+					<span class = "fa fa-align-left" id = "qjustifyleft"></span>
+					<span class = "fa fa-align-center" id = "qjustifycenter"></span>
+					<span class = "fa fa-align-right" id = "qjustifyright"></span>
+					<span class = "fa fa-align-justify" id = "qjustifyfull"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-list-ol" title = "insertorderedlist"></span>
-					<span class = "fa fa-list-ul" title = "insertunorderedlist"></span>
-					<span class = "fa fa-indent" title = "indent"></span>
-					<span class = "fa fa-outdent" title = "outdent"></span>
+					<span class = "fa fa-list-ol" id = "qinsertorderedlist"></span>
+					<span class = "fa fa-list-ul" id = "qinsertunorderedlist"></span>
+					<span class = "fa fa-indent" id = "qindent"></span>
+					<span class = "fa fa-outdent" id = "qoutdent"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-chain" title = "createlink"></span>
-					<span class = "fa fa-chain-broken" title = "unlink"></span>
-					<span class = "fa fa-photo" title = "insertimage"></span>
-					<span class = "fa fa-puzzle-piece" title = "insertmarkdown"></span>
+					<span class = "fa fa-puzzle-piece" id = "qmarkdown"></span>
+					<span class = "fa fa-photo" id = "qimage"></span>
+					<span class = "fa fa-chain" id = "qlink"></span>
+					<span class = "fa fa-chain-broken" id = "qunlink"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-quote-left" title = "blockquote"></span>
-					<span class = "fa fa-code" title = "code"></span>
+					<span class = "fa fa-quote-left" id = "qblockquote"></span>
+					<span class = "fa fa-code" id = "qcode"></span>
 				</div>
 				<div class = "box">
-					<span class = "fa fa-eraser" title = "removeformat"></span>
+					<span class = "fa fa-eraser" id = "qremoveformat"></span>
 				</div>
 				<div class = "box">
-					<select id = "cssstyle">
-						<option id = "browserdefault" selected = "selected" >Browser Default</option>
-						<option id = "markdown.css">Markdown Css</option>
+					<select id = "cssstyle" title = "css style">
+						<option value = "github">github</option>
+						<option value = "twitter">twitter</option>
+						<option value = "markdown">markdown</option>
 					</select>
 				</div>
 			</div>
 		</div>
+
+
+
+
 		<div id = "editarea"><input type = "hidden" id = "vichidden"></input></div>
-		<div id = "dialogmarkdown" class = "dialog">
+		
+
+
+
+
+		<div id = "dmarkdown" class = "dialog">
 			<div class = "north">
 				<span class = "label">Insert Markdown</span>
 				<span class = "close fa fa-close"></span>
@@ -186,28 +201,38 @@
 				<button class = "apply">Apply</button>
 			</div>
 		</div>
-		<div id = "dialoglink" class = "dialog">
+		
+
+
+
+
+		<div id = "dlink" class = "dialog">
 			<div class = "north">
 				<span class = "label">Create Hyperlink</span>
 				<span class = "close fa fa-close"></span>
 			</div>
 			<table>
-				<tr><td>Text: </td><td><input id = "dialoglktext" type = "text"></td></tr>
-				<tr><td>Url: </td><td><input id = "dialoglkurl" type = "text"></td><td><button class = "apply">Apply</button></td></tr>
+				<tr><td>Text: </td><td><input id = "dltext" type = "text"></td></tr>
+				<tr><td>Url: </td><td><input id = "dlurl" type = "text"></td><td><button class = "apply">Apply</button></td></tr>
 			</table>
 			<div class = "south"></div>
 		</div>
-		<div id = "dialogimage" class = "dialog">
+		
+
+
+
+
+		<div id = "dimage" class = "dialog">
 			<div class = "north">
 				<span class = "label">Insert Image</span>
 				<span class = "close fa fa-close"></span>
 			</div>
 			<table>
 				<tr>
-					<td><input id="dialogimgurl" placeholder="File path or URL" type = "text" /></td>
+					<td><input id="dimgurl" placeholder="File path or URL" type = "text" /></td>
 					<td>
 						<div class="fileUpload btn btn-primary">
-						    <button>Browse...</button>
+						    <button id = "dibrowse">Browse...</button>
 						    <input id="uploadBtn" type="file" class="upload" />
 						</div>
 					</td>
@@ -220,15 +245,18 @@
 					<td>resize in</td>
 				</tr>
 				<tr>
-					<td><input id="dialogimgw" placeholder="width (px)" type = "text" /></td>
+					<td><input id="dimgw" placeholder="width (px)" type = "text" /></td>
 				</tr>
 				<tr>
-					<td><input id="dialogimgh" placeholder="height (px)" type = "text" /></td>
+					<td><input id="dimgh" placeholder="height (px)" type = "text" /></td>
 				</tr>
 			</table>
 			<div class = "south"><button class = "apply">Apply</button></div>
 		</div>
-		<div id = "dialogshadow">
-		</div>
+
+
+
+
+
 	</body>
 </html>
