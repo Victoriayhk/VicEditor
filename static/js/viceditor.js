@@ -144,8 +144,6 @@ var page; // 编辑页(对应html中的iframe元素)
 var doc;  // 编辑页中的document, 用的多, 缩写为doc
 
 
-
-
 /**************************************************************************************
 自定义函数们
 ***************************************************************************************/
@@ -171,7 +169,7 @@ function EditPage() {
 	var doc = iframe.contentDocument || iframe.contentWindow.document;
 	doc.designMode = 'on';
 	doc.open();
-	doc.write('<html><head><meta charset = "utf-8"></head><body></body></html>');
+	doc.write('<html><head><meta charset = "utf-8"><link href="../../../../static/css/page.css" rel="stylesheet"></link></head><body></body></html>');
 	doc.close();
 
 	return iframe;
@@ -180,8 +178,6 @@ function EditPage() {
 
 function execCommand(command, argv) {
 	// 执行一个可doc.execCommand的原子级编辑操作
-	console.log('execCommand:');
-	console.lgo(command, arg)
 	if (argv) {
 		if (!doc.execCommand(command, false, argv))
 			doc.execCommand('insertHTML', false, '<' + command + '>' + argv + '</' + command + '>');
