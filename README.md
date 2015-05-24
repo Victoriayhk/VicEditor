@@ -1,18 +1,30 @@
 # Rich-Text-Editor
 
-## 版本说明
+此项目为本人的毕设成果， 为一个Jquery版的富文本编辑器
 
-### 0.1
-这个版本只有最最基础的UI设计以及简单的iframe contentEditable方式的富文本编辑方式; Bold, Italic等按钮的标签使用的是从从某个icon全图中抠出来的18*18像素的图, 不利于扩展
+## 项目特点
 
-### 1.0
-这个版本引用了插件[showdown][1], 基本实现了Markdown到HTML的转换, 见index.html示例; 另外, 按钮标签改成了[Font Awesome][2]
++ 支持markdown文本插入（转HTML）， 使用的是showdown插件， 故showdown不支持的markdown扩展， 本项目也不支持
++ 可保存pdf， 使用的jsPDF插件， 使用chrome预览再保存pdf也是可以的
++ 动态插入表格， 类似于Microsoft office word中的表格效果， 行列的增删不支持
++ UI仿的Google Doc
++ 没有任何创新， 可以用任何一款现有富文本编辑器替代
++ 不兼容较老版本的IE浏览器
 
-未完成的事情有:
+## 其它说明
 
-+ 按钮事件的定制
-+ CSS样式定制
++ django分支是用来测试项目在网站的使用效果的
++ 使用过的（不一定最后真的用上了） 插件在extensions文件夹中， 非原创代码均已注明出处
++ JQuery版本为2.1.3
 
+## 版权
 
-[1]: https://github.com/showdownjs/showdown
-[2]: http://www.thinkcmf.com/font/icons#new
+MIT证，请随意
+
+## 联系方式
+
++ QQ: 452570607
++ Email: huikangyi@gmail.com
++ web: huikangyi.org
+
+Ramen

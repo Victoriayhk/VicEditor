@@ -7,10 +7,29 @@
 	/*text-align: center;*/
 	font: 10pt Verdana;
 	border: solid 1px #CCC;
-	-webkit-box-shadow: 0pt 0pt 4pt #CCC;\
-	-moz-box-shadow: 0pt 0pt 4pt #CCC;\
+	-webkit-box-shadow: 0pt 0pt 4pt #CCC;
+	-moz-box-shadow: 0pt 0pt 4pt #CCC;
 	box-shadow: 0pt 0pt 4pt #CCC;
 	z-index: 100000;
+}
+.dialog:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #CCC;
+	background: #fff;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	bottom: 100%;
+	left: 40px;
+	margin-bottom: -7px; 
+	border-bottom: 0;
+	border-right: 0;
 }
 
 .dialog > * {
@@ -98,6 +117,6 @@
 	filter: alpha(opacity=0);
 }
 
-#dialogimgw, #dialogimgh {
+#dimgw, #dimgh {
 	width: 6em;
 }
